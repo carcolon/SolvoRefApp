@@ -1,0 +1,282 @@
+.solvo-partners-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.65rem 0 1.5rem;
+}
+
+.solvo-partners-hero,
+.solvo-partners-create,
+.solvo-partners-card,
+.solvo-partners-feedback,
+.solvo-partners-empty {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(11, 33, 53, 0.08);
+    border-radius: 8px;
+    box-shadow: 0 18px 40px rgba(11, 33, 53, 0.08);
+}
+
+.solvo-partners-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem;
+    background:
+        radial-gradient(circle at right top, rgba(70, 181, 87, 0.18), transparent 30%),
+        linear-gradient(135deg, rgba(53, 185, 209, 0.16), rgba(115, 200, 159, 0.14) 48%, rgba(239, 228, 28, 0.16));
+}
+
+.solvo-partners-hero__copy {
+    display: grid;
+    gap: 0.45rem;
+    min-width: 0;
+}
+
+.solvo-partners-kicker {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #0b7382;
+}
+
+.solvo-partners-hero h1 {
+    margin: 0;
+    color: var(--brand-ink);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 0.98;
+}
+
+.solvo-partners-hero p {
+    margin: 0;
+    max-width: 62ch;
+    color: var(--text-soft);
+    line-height: 1.55;
+}
+
+.solvo-partners-hero__stats {
+    flex: 0 0 auto;
+    min-width: 160px;
+    min-height: 132px;
+    display: grid;
+    place-items: center;
+    gap: 0.2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(70, 181, 87, 0.2);
+    color: #166534;
+}
+
+.solvo-partners-hero__stats svg {
+    width: 26px;
+    height: 26px;
+}
+
+.solvo-partners-hero__stats strong {
+    color: var(--brand-ink);
+    font-size: 2.4rem;
+    line-height: 1;
+}
+
+.solvo-partners-hero__stats span {
+    color: var(--text-soft);
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.solvo-partners-create {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.15rem;
+}
+
+.solvo-partners-create label {
+    color: var(--brand-ink);
+    font-weight: 800;
+}
+
+.solvo-partners-create__row {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) auto;
+    gap: 0.75rem;
+}
+
+.solvo-partners-create__row input {
+    width: 100%;
+    min-height: 46px;
+    border: 1px solid #d5e0eb;
+    border-radius: 8px;
+    padding: 0.75rem 0.9rem;
+    color: var(--brand-ink);
+    font: inherit;
+}
+
+.solvo-partners-primary-btn,
+.solvo-partners-secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 42px;
+    border-radius: 999px;
+    border: 1px solid rgba(11, 33, 53, 0.12);
+    padding: 0.7rem 1.05rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.solvo-partners-primary-btn {
+    border: none;
+    background: #46b557;
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(70, 181, 87, 0.22);
+}
+
+.solvo-partners-secondary-btn {
+    background: #fff;
+    color: var(--brand-ink);
+}
+
+.solvo-partners-primary-btn:hover,
+.solvo-partners-secondary-btn:hover {
+    transform: translateY(-1px);
+}
+
+.solvo-partners-primary-btn:disabled,
+.solvo-partners-secondary-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.62;
+    transform: none;
+}
+
+.solvo-partners-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.solvo-partners-feedback,
+.solvo-partners-empty {
+    padding: 0.9rem 1rem;
+    color: var(--text-soft);
+}
+
+.solvo-partners-list {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.solvo-partners-card {
+    display: grid;
+    grid-template-columns: 52px minmax(220px, 1fr) auto auto;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem;
+}
+
+.solvo-partners-card.is-inactive {
+    opacity: 0.72;
+}
+
+.solvo-partners-card__badge {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #46b557, #f1d54f);
+    color: #fff;
+    box-shadow: 0 12px 24px rgba(70, 181, 87, 0.24);
+}
+
+.solvo-partners-card__badge svg {
+    width: 25px;
+    height: 25px;
+}
+
+.solvo-partners-card__identity {
+    display: grid;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.solvo-partners-card__identity strong,
+.solvo-partners-card__identity span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.solvo-partners-card__identity strong {
+    color: var(--brand-ink);
+}
+
+.solvo-partners-card__identity span {
+    color: var(--text-soft);
+    font-size: 0.88rem;
+}
+
+.solvo-partners-status {
+    border-radius: 999px;
+    padding: 0.44rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.solvo-partners-status.is-active {
+    background: #e1f7ed;
+    color: #167347;
+}
+
+.solvo-partners-status.is-inactive {
+    background: #f4f0e8;
+    color: #8a5a16;
+}
+
+.solvo-partners-card__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.solvo-partners-danger-btn {
+    color: #b15521;
+}
+
+@media (max-width: 980px) {
+    .solvo-partners-hero {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .solvo-partners-hero__stats {
+        min-width: 0;
+        min-height: 96px;
+    }
+
+    .solvo-partners-card,
+    .solvo-partners-create__row {
+        grid-template-columns: 1fr;
+    }
+
+    .solvo-partners-card__badge {
+        width: 42px;
+        height: 42px;
+    }
+
+    .solvo-partners-card__actions,
+    .solvo-partners-toolbar {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}

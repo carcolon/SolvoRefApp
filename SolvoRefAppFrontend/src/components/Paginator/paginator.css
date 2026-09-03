@@ -1,0 +1,18 @@
+.pagination-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.paginator {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 4px 8px;
+    user-select: none;
+}
+
+.card-title-nopad {
+    margin: 0;
+    font-weight: 500;
+}

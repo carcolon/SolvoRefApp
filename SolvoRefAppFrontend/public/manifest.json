@@ -1,0 +1,26 @@
+{
+  "short_name": "Referral App",
+  "name": "Referral App",
+  "icons": [
+    {
+      "src": "favicon-referral.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "favicon-referral.png",
+      "type": "image/png",
+      "sizes": "2251x2250"
+    },
+    {
+      "src": "favicon-referral.png",
+      "type": "image/png",
+      "sizes": "2251x2250",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

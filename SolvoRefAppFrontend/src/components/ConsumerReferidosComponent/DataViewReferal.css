@@ -1,0 +1,167 @@
+.contenedor-general-referidos {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 6px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+    position: relative;
+    overflow: auto;
+}
+
+.pView {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 92px;
+    min-width: 92px;
+    min-height: 44px;
+}
+
+.pView img {
+    width: 80px;
+    display: block;
+}
+
+.pView p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 !important;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.78rem;
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.getReferals {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(23, 50, 74, 0.08);
+    padding: 20px;
+    border-radius: 24px;
+    box-shadow: 0 10px 24px rgba(11, 33, 53, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.referralInformationContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.referralInformationTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.referralInformationTitle p {
+    margin: 0;
+}
+
+.referidos {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    gap: 14px;
+}
+
+.status,
+b {
+    font-size: 14px;
+}
+
+.referral-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.recurso66 {
+    width: 85px;
+    cursor: pointer;
+}
+
+.referral-separator {
+    width: 100%;
+    border-top: 1px dashed rgba(23, 50, 74, 0.28);
+    margin: 0;
+}
+
+.recurso10 {
+    width: 48px;
+    height: 48px;
+}
+
+.referralInformationContent {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.referralInformationContent p {
+    margin: 0;
+}
+
+.empty-referrals {
+    border-radius: 24px;
+    padding: 1rem 1.2rem;
+    color: white;
+    background: rgba(11, 33, 53, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    box-shadow: 0 10px 24px rgba(153, 153, 153, 0.2);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .contenedor-general-referidos {
+        padding: 0;
+        gap: 12px;
+    }
+
+    .getReferals {
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    .referidos {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .referralInformationContent {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pView {
+        align-self: flex-start;
+        width: 64px;
+        min-width: 64px;
+        min-height: 36px;
+    }
+
+    .pView img {
+        width: 64px;
+    }
+
+    .pView p {
+        font-size: 0.68rem;
+    }
+}

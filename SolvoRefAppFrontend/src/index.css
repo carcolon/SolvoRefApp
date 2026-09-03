@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --brand-orange: rgb(220, 112, 56);
+    --brand-teal: rgb(39, 185, 209);
+    --brand-ink: #0b2135;
+    --surface-0: #f6f8fb;
+    --surface-1: rgba(255, 255, 255, 0.82);
+    --surface-2: #ffffff;
+    --text-main: #17324a;
+    --text-soft: #5c6c7c;
+    --shadow-soft: 0 12px 32px rgba(11, 33, 53, 0.08);
+    --shadow-strong: 0 24px 60px rgba(11, 33, 53, 0.14);
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+    background: var(--surface-0);
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    will-change: transform;
+}
+
+main {
+    height: 100%;
+}
+
+.glass-panel {
+    background: var(--surface-1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: var(--shadow-soft);
+}
+
+.section-eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--brand-teal);
+}
+
+.section-title {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3.4rem);
+    line-height: 1.02;
+    color: var(--brand-ink);
+}
+
+.section-copy {
+    margin: 0;
+    color: var(--text-soft);
+    line-height: 1.7;
+    max-width: 62ch;
+}
+
+.gsap-button,
+.btn-submit,
+.btn-referral,
+.button1,
+.b-outline {
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.gsap-card,
+.position-card,
+.getReferals,
+.status-group,
+.card-mb-3,
+.home-panel,
+.home-highlight-card {
+    transition:
+        box-shadow 0.28s ease,
+        transform 0.28s ease,
+        border-color 0.28s ease;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(23, 50, 74, 0.18);
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(23, 50, 74, 0.28);
+}

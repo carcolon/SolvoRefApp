@@ -1,0 +1,76 @@
+name: Azure Static Web Apps CI/CD - PROD
+
+pr:
+    branches:
+        include:
+            - main
+trigger:
+    branches:
+        include:
+            - main
+
+variables:
+    - group: SolRefFrontProd
+
+jobs:
+    - job: build_and_deploy_job
+      displayName: Build and Deploy PROD
+      condition: or(eq(variables['Build.Reason'], 'Manual'),or(eq(variables['Build.Reason'], 'PullRequest'),eq(variables['Build.Reason'], 'IndividualCI')))
+      pool:
+          vmImage: ubuntu-latest
+      variables:
+          - group: Azure-Static-Web-Apps-yellow-pond-0c44ce80f-variable-group
+      steps:
+          - checkout: self
+            submodules: true
+
+          - task: NodeTool@0
+            inputs:
+                versionSpec: '20.x'
+            displayName: 'Instalar Node.js'
+
+          - script: |
+                npm ci --legacy-peer-deps
+            displayName: 'Instalar dependencias con npm'
+
+          - script: |
+                npm audit --audit-level=high --json > npm-audit-report.json || true
+                node -e "const fs=require('fs');const data=JSON.parse(fs.readFileSync('npm-audit-report.json','utf8'));const v=(data.metadata&&data.metadata.vulnerabilities)||{};const critical=v.critical||0;const high=v.high||0;const total=v.total||0;console.log(`npm audit -> critical=${critical}, high=${high}, total=${total}`);if(critical>0){process.exit(1);}"
+            displayName: 'Security gate: npm audit (fail only on critical)'
+
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publicar artefacto npm audit'
+            condition: always()
+            inputs:
+                PathtoPublish: '$(System.DefaultWorkingDirectory)/npm-audit-report.json'
+                ArtifactName: 'npm-audit-report'
+                publishLocation: 'Container'
+
+          - script: |
+                npm run build
+            displayName: 'Construir la aplicacion'
+            env:
+                REACT_APP_CLIENT_ID: $(REACT_APP_CLIENT_ID)
+                VITE_CLIENT_ID: $(REACT_APP_CLIENT_ID)
+                REACT_APP_TENANT_ID: $(REACT_APP_TENANT_ID)
+                VITE_TENANT_ID: $(REACT_APP_TENANT_ID)
+                REACT_APP_AUTHORITY_TENANT: organizations
+                VITE_AUTHORITY_TENANT: organizations
+                REACT_APP_REDIRECT_URI: $(REACT_APP_REDIRECT_URI)
+                VITE_REDIRECT_URI: $(REACT_APP_REDIRECT_URI)
+                REACT_APP_API: $(REACT_APP_API)
+                VITE_API: $(REACT_APP_API)
+                REACT_APP_TERM_CONDITION: $(REACT_APP_TERM_CONDITION)
+                VITE_TERM_CONDITION: $(REACT_APP_TERM_CONDITION)
+                REACT_APP_FRONTEND_URL: $(REACT_APP_FRONTEND_URL)
+                VITE_FRONTEND_URL: $(REACT_APP_FRONTEND_URL)
+                REACT_APP_TURNSTILE_SITE_KEY: $(REACT_APP_TURNSTILE_SITE_KEY)
+                VITE_TURNSTILE_SITE_KEY: $(REACT_APP_TURNSTILE_SITE_KEY)
+
+          - task: AzureStaticWebApp@0
+            inputs:
+                azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_API_TOKEN_YELLOW_POND_0C44CE80F)
+                app_location: 'dist'
+                api_location: ''
+                skip_app_build: true
+                output_location: ''

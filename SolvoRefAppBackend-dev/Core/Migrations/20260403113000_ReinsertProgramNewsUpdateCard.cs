@@ -1,0 +1,72 @@
+using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace Core.Migrations
+{
+    public partial class ReinsertProgramNewsUpdateCard : Migration
+    {
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.InsertData(
+                table: "HomeContentCards",
+                columns: new[]
+                {
+                    "Id",
+                    "Section",
+                    "BadgeText",
+                    "BadgeVariant",
+                    "Title",
+                    "DescriptionHtml",
+                    "DateText",
+                    "ButtonText",
+                    "ActionType",
+                    "ActionValue",
+                    "IconKey",
+                    "ImageUrl",
+                    "LayoutJson",
+                    "DetailTitle",
+                    "DetailContentHtml",
+                    "DisplayOrder",
+                    "IsPublished",
+                    "PublishStartUtc",
+                    "PublishEndUtc",
+                    "CreatedAtUtc",
+                    "UpdatedAtUtc"
+                },
+                values: new object[]
+                {
+                    new Guid("7d63fd48-b6fd-4f89-8c53-66f875a91d41"),
+                    "program_news",
+                    "Update",
+                    "update",
+                    "New incentive policy for 2026",
+                    "<p>Review the latest changes to the referral incentive policy and eligibility rules.</p>",
+                    "February 5, 2026",
+                    "Read More",
+                    "modal",
+                    "update",
+                    "",
+                    "",
+                    null,
+                    "New incentive policy for 2026",
+                    "<p>Review the latest changes to the referral incentive policy and eligibility rules.</p>",
+                    1,
+                    true,
+                    null,
+                    null,
+                    new DateTime(2026, 4, 3, 11, 30, 0, DateTimeKind.Utc),
+                    new DateTime(2026, 4, 3, 11, 30, 0, DateTimeKind.Utc)
+                });
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DeleteData(
+                table: "HomeContentCards",
+                keyColumn: "Id",
+                keyValue: new Guid("7d63fd48-b6fd-4f89-8c53-66f875a91d41"));
+        }
+    }
+}

@@ -1,0 +1,123 @@
+/* src/components/CardsRecrComponent/CardsRecr.css */
+
+.contenedor {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  position: relative;
+}
+
+.span-enmail {
+  font-size: 10px;
+}
+.title-count {
+  display: flex;
+}
+.card-name {
+  font-size: 13px;
+}
+.column-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+/* Tus estilos de columna existentes */
+
+/* La clase que maneja el efecto de borde azul */
+.cards-8.column.card.dragging-over {
+  border: dashed 2px #007bff;
+  background-color: #e9f0f8;
+}
+
+.hr {
+  border: none;
+  height: 1px;
+  background-color: #bbb;
+}
+.card-initials-display {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.cards-8 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 60vh;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* LOS SIGUIENTES ESTILOS SON OBSOLETOS SI ESTÁS USANDO LAS CLASES DE 'cards.css'
+   PARA EL DISEÑO DE LA TARJETA INDIVIDUAL (ej. .movable-item, .custom-card-content, etc.)
+   Por lo tanto, los he comentado o eliminado.
+*/
+/*
+.recr-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 20px;
+}
+.countDias {
+    position: absolute;
+    top: 170px;
+    right: 60px;
+}
+.Date {
+    font-size: 12px;
+}
+.referedBy {
+    font-size: 12px;
+    color: #555;
+}
+.referente {
+    font-size: 15px;
+    color: #000;
+}
+.recr-initials {
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+}
+*/
+
+/* Media Query para Laptops (ej: min-width de 768px - para 2 o 3 columnas) */
+@media (min-width: 768px) {
+  .contenedor {
+    gap: 15px;
+  }
+
+  .cards-8 {
+    flex-basis: calc(33.33% - 10px);
+  }
+}
+
+/* Media Query para Pantallas Grandes (ej: min-width de 1200px - para 4 o 5 columnas) */
+@media (min-width: 1200px) {
+  .cards-8 {
+    flex-basis: calc(16.66% - 16.66px); /* Para 6 columnas */
+
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .cards-8 {
+    flex-basis: calc(16.66% - 16.66px);
+  }
+}

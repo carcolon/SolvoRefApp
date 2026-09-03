@@ -1,0 +1,52 @@
+.referral-footer {
+    width: 100%;
+    max-width: 1268px;
+    margin: 0 auto;
+    padding: 1rem 1.3rem 1.15rem;
+    border-radius: 0;
+    background: rgba(214, 214, 214, 0.88);
+    color: #2a3340;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.referral-footer__contact,
+.referral-footer__links {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.referral-footer__contact {
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.referral-footer__contact svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.referral-footer__links {
+    font-size: 0.9rem;
+}
+
+.referral-footer a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .referral-footer {
+        padding: 0.9rem 1rem 1rem;
+        border-radius: 20px;
+    }
+
+    .referral-footer__contact,
+    .referral-footer__links {
+        align-items: flex-start;
+    }
+}

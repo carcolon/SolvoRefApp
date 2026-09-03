@@ -1,0 +1,193 @@
+.imagen.referrals-page-shell {
+    height: 100%;
+    background-image: url('../../assets/images/fondview.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: auto;
+}
+
+.text-and-count {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-and-count p,
+.text-and-count h4 {
+    margin: 0;
+}
+
+.referrals-toolbar {
+    display: grid;
+    grid-template-columns: minmax(200px, 1.2fr) repeat(3, minmax(140px, 1fr)) auto;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+    border-radius: 28px;
+    padding: 1rem 1.2rem;
+    background:
+        linear-gradient(135deg, rgba(39, 185, 209, 0.22), rgba(255, 212, 77, 0.18)),
+        radial-gradient(circle at left center, rgba(255, 212, 77, 0.28), transparent 32%),
+        radial-gradient(circle at right top, rgba(39, 185, 209, 0.22), transparent 30%),
+        rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(153, 153, 153, 0.28);
+    box-shadow: 0 18px 40px rgba(153, 153, 153, 0.35);
+}
+
+.referrals-toolbar-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.referrals-toolbar-copy h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.7rem, 2vw, 2.4rem);
+    text-shadow: 0 8px 24px rgba(153, 153, 153, 0.2);
+}
+
+.referrals-toolbar .section-eyebrow {
+    color: #7fe5f1;
+}
+
+.referrals-toolbar-copy {
+    position: relative;
+    z-index: 1;
+}
+
+.status-group {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-height: 88px;
+    padding: 0.75rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(153, 153, 153, 0.18);
+    box-shadow: 0 8px 18px rgba(153, 153, 153, 0.18);
+    cursor: pointer;
+}
+
+.solamarillo,
+.solzapote,
+.estrella4 {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.button1 {
+    display: inline-flex;
+    width: fit-content;
+    border: solid 2px rgb(220, 112, 56);
+    background-color: rgb(220, 112, 56);
+    border-radius: 50px;
+    color: #fff;
+    padding: 0.8rem 1.25rem;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-weight: 700;
+}
+
+.referrals-toolbar-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.status-group.active-filter.getBackgroundColor1 {
+    background-color: rgba(255, 191, 0, 0.24);
+}
+
+.status-group.active-filter.getBackgroundColor2 {
+    background-color: rgba(220, 112, 56, 0.24);
+}
+
+.status-group.active-filter.getBackgroundColor3 {
+    background-color: rgba(48, 192, 209, 0.24);
+}
+
+.button1:hover {
+    color: rgb(220, 112, 56);
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgb(220, 112, 56);
+    transform: translateY(-2px);
+}
+
+.referralContainer {
+    height: 80vh;
+    overflow: scroll;
+}
+
+.pagination-indicator {
+    margin: auto;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: white;
+    font-weight: 700;
+}
+
+.pagination-indicator p {
+    margin: 0;
+}
+
+.paginator {
+    cursor: pointer;
+    padding: 1rem;
+}
+
+@media (max-width: 1200px) {
+    .referrals-toolbar {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .imagen.referrals-page-shell {
+        background-attachment: scroll;
+    }
+
+    .referrals-toolbar {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        border-radius: 24px;
+    }
+
+    .status-group {
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 76px;
+    }
+
+    .button1 {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .referrals-toolbar-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .referralContainer {
+        height: auto;
+        overflow: visible;
+    }
+
+    .pagination-indicator {
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,133 @@
+trigger:
+  branches:
+    include:
+      - dev
+
+pr:
+  branches:
+    include:
+      - dev
+
+pool:
+  vmImage: "windows-latest"
+
+variables:
+  - group: ConfigVariablesSolvoRefAppBackend
+  - name: buildConfiguration
+    value: "Release"
+  - name: buildPlatform
+    value: "Any CPU"
+
+jobs:
+  - job: BuildAndPublish
+    displayName: "Build and Publish"
+
+    steps:
+      - task: replacetokens@5
+        inputs:
+          rootDirectory: "$(System.DefaultWorkingDirectory)/Api"
+          targetFiles: "**/appsettings.json"
+          encoding: "auto"
+          writeBOM: true
+          actionOnMissing: "warn"
+          keepToken: false
+          tokenPrefix: "#{"
+          tokenSuffix: "}#"
+
+      - task: UseDotNet@2
+        inputs:
+          packageType: "sdk"
+          version: "8.x"
+          installationPath: $(Agent.ToolsDirectory)/dotnet
+
+      - task: DotNetCoreCLI@2
+        displayName: "Restore NuGet packages"
+        inputs:
+          command: "restore"
+          projects: "SolvoRefApp.sln"
+
+      - task: PowerShell@2
+        displayName: "Security gate: .NET vulnerable packages (fail only on critical)"
+        inputs:
+          targetType: "inline"
+          script: |
+            $ErrorActionPreference = "Stop"
+            $reportPath = "$(Build.ArtifactStagingDirectory)\dotnet-vulnerable-back.json"
+
+            $raw = dotnet list Api/Api.csproj package --vulnerable --include-transitive --format json 2>&1 | Out-String
+            $jsonStart = $raw.IndexOf("{")
+            if ($jsonStart -lt 0) {
+              throw "No se pudo obtener salida JSON de 'dotnet list package --vulnerable'."
+            }
+
+            $json = $raw.Substring($jsonStart)
+            Set-Content -Path $reportPath -Value $json -Encoding UTF8
+
+            $critical = [regex]::Matches($json, '"severity"\s*:\s*"critical"', 'IgnoreCase').Count
+            $high = [regex]::Matches($json, '"severity"\s*:\s*"high"', 'IgnoreCase').Count
+            $total = [regex]::Matches($json, '"severity"\s*:\s*"', 'IgnoreCase').Count
+
+            Write-Host "dotnet vulnerable packages -> critical=$critical, high=$high, total=$total"
+
+            if ($critical -gt 0) {
+              throw "Security gate failed: dotnet critical vulnerabilities > 0."
+            }
+
+      - task: PublishBuildArtifacts@1
+        displayName: "Publish dotnet vulnerability report"
+        condition: always()
+        inputs:
+          pathToPublish: '$(Build.ArtifactStagingDirectory)/dotnet-vulnerable-back.json'
+          artifactName: "dotnet-vulnerable-report"
+          publishLocation: "Container"
+
+      - task: DotNetCoreCLI@2
+        displayName: "Test"
+        inputs:
+          command: "test"
+          projects: "SolvoRefApp.sln"
+
+      - task: DotNetCoreCLI@2
+        displayName: "Build"
+        inputs:
+          command: "build"
+          projects: "SolvoRefApp.sln"
+          arguments: "--configuration $(buildConfiguration)"
+
+      - task: DotNetCoreCLI@2
+        displayName: "Publish"
+        inputs:
+          command: "publish"
+          publishWebProjects: true
+          projects: "Api/Api.csproj"
+          arguments: "--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)"
+          zipAfterPublish: true
+
+      - task: PublishBuildArtifacts@1
+        displayName: "Publish Artifact"
+        inputs:
+          pathToPublish: "$(Build.ArtifactStagingDirectory)"
+          artifactName: "drop"
+          publishLocation: "Container"
+
+  - job: Deploy
+    displayName: "Deploy to Azure"
+    dependsOn: BuildAndPublish
+
+    steps:
+      - task: DownloadPipelineArtifact@2
+        displayName: "Download Build Artifacts"
+        inputs:
+          buildType: "current"
+          artifactName: "drop"
+          targetPath: "$(Pipeline.Workspace)/drop"
+
+      - task: AzureRmWebAppDeployment@4
+        displayName: "Deploy Azure Web App"
+        inputs:
+          ConnectionType: "AzureRM"
+          azureSubscription: "sol-ref-app"
+          appType: "webApp"
+          WebAppName: "sol-ref-api"
+          packageForLinux: "$(Pipeline.Workspace)/drop/Api.zip"
+          AppSettings: '-AzureAd__AuthorityTenant "organizations" -AzureAd__BlockedGroupIds__0 "$(AzureAd__BlockedGroupIds__0)"'

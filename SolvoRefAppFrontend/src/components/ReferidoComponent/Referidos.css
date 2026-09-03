@@ -1,0 +1,688 @@
+/* Contenedor del modal: crea un fondo oscuro que cubre toda la pantalla */
+.form-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(48, 192, 209, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Contenido principal del modal (el cuadro blanco del formulario) */
+.form-modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Encabezado del Formulario dentro del modal */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 84px 5px 0;
+    border-bottom: 1px solid #eee;
+    min-height: 84px;
+}
+
+.form-header img,
+.flechass {
+    pointer-events: none;
+}
+
+.form-header > img {
+    width: 132px;
+    max-width: 100%;
+    margin-right: 8px;
+    flex: 0 0 auto;
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+/* .close-button {
+    background: none; 
+    border: none; 
+    font-size: 1.5em;
+    cursor: pointer; 
+    color: #888; 
+    transition: color 0.2s ease; 
+} */
+
+/* .close-button:hover {
+    color: #333; 
+} */
+
+/* Layout principal del formulario: utiliza CSS Grid para 2 columnas (CV y campos) */
+.referral-form-grid {
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh;
+    overflow-y: auto; /* Permite scroll vertical si el contenido del formulario es demasiado largo */
+    padding: 0 1.2rem 1rem;
+}
+
+input::placeholder {
+    font-size: 14px;
+}
+select {
+    font-size: 10px;
+}
+
+img {
+    width: 150px;
+}
+
+.cv-upload-area .cloud-icon-container {
+    color: #ff7f50;
+    font-size: 4em;
+    margin-bottom: 15px;
+    width: 60px;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.cloud-icon-container {
+    margin-left: 90px;
+    position: relative;
+    top: 100px;
+    left: -6px;
+}
+.h22 {
+    font-size: 5px;
+}
+.flechass {
+    transform: rotate(290deg);
+    width: 30px;
+}
+
+.cv-upload-area h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.cv-upload-area p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.5;
+}
+.flecha-titulo {
+    display: flex;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.flecha-titulo h2 {
+    font-weight: 700;
+}
+.cv-upload-area .click-here-label {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Panel Derecho: Contenedor de los campos del formulario */
+.form-right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Fila de campos: utiliza flexbox para organizar los campos horizontalmente */
+.form-row {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.form-row:has(.toolTipInput) {
+    z-index: 10000;
+}
+
+/* Ajuste de ancho para los campos dentro de una fila (ocupan la mitad del ancho disponible) */
+.form-row .outlined-input-container {
+    flex: 1 1 calc(50% - 7.5px);
+    min-width: 150px;
+}
+
+/* Campo que ocupa todo el ancho de la fila (ej. Email) */
+.form-row .full-width {
+    flex: 1 1 100%;
+}
+
+/* Ajustes específicos para la sección de código de país y teléfono */
+.form-row.phone-section .country-code-select {
+    flex: 0 0 200px;
+    min-width: unset;
+}
+
+.form-row.phone-section .phone-input {
+    flex: 1;
+    min-width: 130px;
+}
+
+/* Sección de radio buttons "Previous work experience?" */
+.previous-work-experience-section {
+    margin-top: 5px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.previous-work-experience-section p {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-group input[type='radio'] {
+    margin-right: 5px;
+}
+
+/* Títulos de sección (ej. "Other Details") */
+.section-title {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-size: 1.2em;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* Pie del formulario con botones de acción */
+.form-footer {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 25px;
+    border-top: 1px solid #eee;
+    width: fit-content;
+    background-color: #fbfbfb;
+}
+.form-footer2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1.2rem 1.2rem;
+}
+
+.form-footer-term {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 0.2rem;
+    flex-wrap: wrap;
+}
+
+.form-footer-term p {
+    margin: 0;
+}
+
+/* --- Estilos para los Campos Delineados (Outlined Inputs) --- */
+
+.outlined-input-container {
+    position: relative;
+    height: 60px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.outlined-input-container.is-open {
+    z-index: 30;
+}
+
+/* Estilos base para input, textarea y select */
+.outlined-input-container input,
+.outlined-input-container textarea,
+.outlined-input-container select {
+    width: 100%;
+    height: 100%;
+    padding: 8px 8px 0;
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    color: #666;
+    box-sizing: border-box;
+    outline: none;
+    position: relative;
+    z-index: 1;
+    resize: vertical;
+
+    font-size: 14px;
+    top: 4px;
+}
+.country {
+    margin-top: -30px;
+}
+/* CustomTextareaStyles.css */
+
+/* --- Contenedor Principal: .comments-textarea-wrapper --- */
+/* Ahora, todas las reglas que sigan se aplicarán SÓLO a este campo de comentarios */
+.comments-textarea-wrapper {
+    position: relative; /* Crucial para posicionar el fieldset */
+    margin-bottom: 20px;
+    width: 100%;
+    min-height: 150px; /* ¡Ajusta esta altura mínima según lo necesites! */
+}
+
+/* --- Estilos del Textarea en sí (textarea#coments) --- */
+textarea#coments {
+    width: 100%;
+    height: 100%; /* Ocupa la altura de su contenedor padre */
+    padding: 26px 17px 10px 20px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-radius: 5px;
+    resize: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Estilos del Fieldset: .input-outline dentro de .comments-textarea-wrapper --- */
+.comments-textarea-wrapper .input-outline {
+    /* ¡Selector más específico! */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    pointer-events: none;
+    overflow: hidden;
+    transition:
+        border-color 0.2s ease-out,
+        border-width 0.2s ease-out;
+    z-index: 0;
+}
+
+/* --- Estilos de la Leyenda: .input-legend dentro de .comments-textarea-wrapper --- */
+.comments-textarea-wrapper .input-legend {
+    /* ¡Selector más específico! */
+    display: inline-block;
+    padding: 0px;
+    font-size: 25px;
+    color: #333;
+    background-color: white;
+    margin-left: -8px;
+    line-height: 1;
+    transition: color 0.3s ease-in-out;
+}
+
+/* --- Estilos al Enfocar (Focus State) --- */
+/* Cuando el contenedor específico está enfocado */
+.comments-textarea-wrapper:focus-within .input-outline {
+    /* ¡Selector más específico! */
+    border-color: rgb(220, 112, 56);
+    border-width: 2px;
+}
+
+/* Leyenda naranja al enfocar en el contenedor específico */
+.comments-textarea-wrapper:focus-within .input-legend {
+    /* ¡Selector más específico! */
+    color: rgb(220, 112, 56);
+}
+
+/* --- Estilos del Placeholder (siguen siendo específicos por ID del textarea) --- */
+textarea#coments::placeholder {
+    color: #666;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 13px;
+}
+
+textarea#coments:focus::placeholder {
+    opacity: 0;
+}
+
+textarea#coments:not(:placeholder-shown)::placeholder {
+    opacity: 0;
+}
+
+/* Estilos específicos para la flecha del select */
+.outlined-input-container.select-variant select {
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 30px;
+}
+
+/* Estilos para la etiqueta flotante ESTÁTICA */
+.outlined-input-container label {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 0.75em;
+    color: #000;
+    background-color: #fff;
+    padding: 0 4px;
+    pointer-events: none;
+    transition: color 0.2s ease-out;
+    z-index: 2;
+}
+
+/* Estilos para el borde delineado (fieldset) */
+.input-outline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition:
+        border-color 0.2s ease-out,
+        border-width 0.2s ease-out;
+    z-index: 0;
+}
+
+/* Estilos para el recorte del borde (legend) ESTÁTICO */
+.input-legend {
+    float: unset;
+    width: auto;
+    max-width: 100%;
+    padding: 0;
+    height: auto;
+    overflow: visible;
+    visibility: visible;
+    transition: none;
+    white-space: nowrap;
+}
+
+.input-legend span {
+    font-size: 0.55em;
+    padding: 0 4px;
+    visibility: inherit;
+    display: inline-block;
+    margin-top: -5px;
+}
+
+/* --- ESTILOS DE ENFOQUE/VALIDACIÓN (Color naranja de ejemplo) --- */
+
+/* Cambiar el color del borde y grosor al enfocar cualquier input/textarea/select */
+.outlined-input-container input:focus ~ .input-outline,
+.outlined-input-container textarea:focus ~ .input-outline,
+.outlined-input-container select:focus ~ .input-outline,
+.outlined-input-container select:valid ~ .input-outline {
+    border-color: rgb(220, 112, 56);
+    border-width: 2px;
+}
+
+/* Cambiar el color de la etiqueta al enfocar cualquier input/textarea/select */
+.outlined-input-container input:focus ~ label,
+.outlined-input-container textarea:focus ~ label,
+.outlined-input-container select:focus ~ label,
+.outlined-input-container select:valid ~ label {
+    color: rgb(220, 112, 56);
+}
+
+/* ... (Todo tu CSS existente arriba, y las reglas anteriores de bootstrap-alert-fixed ya no son necesarias si solo usas SweetAlert2) ... */
+
+/* Estilo personalizado para el popup de SweetAlert2 */
+.swal2-custom-success-popup {
+    background-color: rgb(
+        220,
+        112,
+        56
+    ) !important; /* Tu color naranja para el fondo del popup */
+    color: white !important; /* Color del texto dentro del popup */
+    /* Puedes añadir más estilos si quieres, como border-radius, box-shadow, etc. */
+}
+
+/* Opcional: Asegurarte de que el texto dentro del popup sea blanco */
+.swal2-custom-success-popup .swal2-title,
+.swal2-custom-success-popup .swal2-html-container {
+    color: white !important;
+}
+
+/* Estilo para el botón de confirmación de SweetAlert2 si no se define inline */
+/* Si ya lo defines con confirmButtonColor en el JS, esto no es estrictamente necesario */
+.swal2-confirm.swal2-styled {
+    background-color: rgb(220, 112, 56) !important;
+    border-color: rgb(220, 112, 56) !important;
+}
+
+/* Estilos Base para los botones del formulario */
+.btn-cancel,
+.btn-submit {
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Referidos.css */
+
+/* Base styles for react-select components */
+.react-select__control {
+    border-radius: 4px !important; /* Adjust as per your input border-radius */
+}
+
+.react-select__control--is-focused {
+    border-color: rgb(220, 112, 56) !important;
+    box-shadow: 0 0 0 1px rgb(220, 112, 56) !important;
+}
+
+.react-select__value-container {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.react-select__placeholder {
+    color: #aaa !important;
+    padding: 0; /* Override default padding if necessary */
+}
+
+/* Adjust legend-like appearance for the placeholder when a value is present */
+.react-select__single-value + .react-select__placeholder {
+    transform: translateY(-18px) scale(0.75);
+    transform-origin: top left;
+    background-color: white; /* To simulate the cut-out */
+    padding: 0 5px;
+    margin-left: -5px;
+}
+
+/* Ensure the input-outline fieldset aligns correctly with react-select */
+.react-select-container .input-outline {
+    pointer-events: none; /* Prevent clicks on the fieldset */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Match input border-radius */
+    overflow: hidden; /* Hide overflow from legend */
+    transition: border-color 0.2s ease-out;
+}
+#p {
+    font-size: 12px;
+}
+.react-select-container .input-outline legend {
+    visibility: hidden; /* Hide the default legend text, react-select handles it */
+    max-width: 0.01px; /* collapse legend space */
+    padding: 0;
+}
+
+/* Apply focus styles to the fieldset border for react-select */
+.react-select-container .react-select__control--is-focused + .input-outline {
+    border-color: rgb(220, 112, 56);
+}
+
+/* Specific styling for the textarea variant */
+.btn-cancel {
+    transition: all 0.3s ease;
+    background-color: rgb(48, 192, 209);
+    color: #fff;
+    border: 2px solid rgb(48, 192, 209);
+}
+
+.btn-cancel:hover {
+    transform: translateY(-2px);
+    background-color: #fff;
+    color: rgb(48, 192, 209);
+    box-shadow: 0 4px 8px rgb(48, 192, 209);
+}
+
+/* Estilos para el botón "Submit" */
+.btn-validate {
+    margin: 1rem 0;
+}
+
+.btn-submit {
+    transition: all 0.3s ease;
+    background-color: rgb(220, 112, 56);
+    color: white;
+    border: 2px solid rgb(220, 112, 56);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    color: rgb(220, 112, 56);
+    border: solid 2px rgb(220, 112, 56);
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgb(220, 112, 56);
+}
+.btn-submit:disabled {
+    background-color: #6c6c6c;
+    cursor: not-allowed;
+    border: 0;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    /* El grid de 2 columnas se convierte en 1 columna en pantallas pequeñas */
+    .referral-form-grid {
+        grid-template-columns: 1fr;
+        padding: 15px; /* Reduce el padding general */
+    }
+
+    /* El modal se ajusta mejor al ancho en pantallas pequeñas */
+    .form-modal-content {
+        width: min(100%, 760px);
+        max-height: calc(100vh - 2rem);
+        border-radius: 22px;
+    }
+
+    .form-modal-overlay {
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .form-header {
+        min-height: auto;
+        padding: 1rem;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .form-header > img {
+        width: 112px;
+    }
+
+    /* Los campos dentro de las filas ocupan todo el ancho disponible */
+    .form-row .outlined-input-container {
+        flex: 1 1 100%;
+        min-width: unset; /* Anula el min-width para que puedan encogerse más */
+    }
+
+    .form-row.phone-section .country-code-select {
+        flex: 1;
+    }
+
+    .form-row.phone-section .phone-input {
+        flex: 1;
+    }
+
+    .button-collection button {
+        width: 100%;
+    }
+
+    .referral-form-grid {
+        max-height: none;
+        padding: 0 1rem 1rem;
+    }
+
+    .country {
+        margin-top: 0;
+    }
+
+    .section-title {
+        margin-bottom: 18px;
+    }
+
+    .form-footer2 {
+        padding: 0 1rem 1rem;
+    }
+
+    .form-footer-term {
+        align-items: flex-start;
+    }
+
+    .btn-submit,
+    .btn-cancel,
+    .btn-validate {
+        width: 100%;
+    }
+}
+
+.input-error-text {
+    position: absolute;
+    padding-left: 4px;
+    font-size: 0.68rem;
+    color: #d32f2f; /* rojo accesible */
+    font-weight: 500;
+
+    /* Suavidad */
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.18s ease-out,
+        transform 0.18s ease-out;
+}
+
+/* Si necesitas ocultarlo inicialmente (opcional) */
+.has-error .input-error-text {
+    opacity: 1;
+}
+
+/* Dark mode automático */
+@media (prefers-color-scheme: dark) {
+    .input-error-text {
+        color: #ff6b6b;
+    }
+}

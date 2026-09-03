@@ -1,0 +1,526 @@
+.home-promo-modal {
+    padding: 0.6rem 0.1rem 0.2rem;
+    color: var(--brand-ink);
+}
+
+.home-promo-modal--wide {
+    padding-inline: 0.2rem;
+}
+
+.home-promo-modal--narrow {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.home-promo-modal__eyebrow {
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    color: #7a7a7a;
+}
+
+.home-promo-modal__title {
+    margin: 0.35rem 0 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: clamp(1.9rem, 2vw, 2.6rem);
+    font-weight: 800;
+}
+
+.home-promo-modal__subtitle {
+    margin: 0.4rem auto 0;
+    max-width: 56ch;
+    text-align: center;
+    color: #4d5661;
+    line-height: 1.55;
+    font-size: 1.04rem;
+}
+
+.home-promo-modal__divider {
+    height: 1px;
+    margin: 1rem 0 1.35rem;
+    background: rgba(17, 39, 61, 0.09);
+}
+
+.home-promo-modal__hero-layout {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 1.4rem;
+    align-items: center;
+}
+
+.home-promo-modal__mascot,
+.home-promo-modal__campaign-mascot,
+.home-promo-modal__story-mascot,
+.home-promo-modal__community-mascot {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.home-promo-modal__hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    font-size: 1.18rem;
+    line-height: 1.55;
+    text-align: center;
+}
+
+.home-promo-modal__pill {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0.9rem 1.25rem;
+    border-radius: 999px;
+    background: var(--brand-orange);
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(220, 112, 56, 0.22);
+}
+
+.home-promo-modal__footnote {
+    margin: 0.15rem 0 0;
+    color: #7a7a7a;
+    font-size: 0.82rem;
+}
+
+.home-promo-modal__story-grid {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 1.2rem;
+}
+
+.home-promo-modal__story-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-right: 1.2rem;
+    border-right: 1px solid rgba(17, 39, 61, 0.1);
+}
+
+.home-promo-modal__story-figure {
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(235, 243, 249, 0.95), rgba(248, 240, 227, 0.95));
+    padding: 1rem;
+}
+
+.home-promo-modal__story-caption {
+    margin: 0;
+    text-align: center;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.home-promo-modal__stat-chip {
+    padding: 0.95rem 1rem;
+    border-radius: 18px;
+    background: rgba(17, 39, 61, 0.06);
+    text-align: center;
+    line-height: 1.45;
+}
+
+.home-promo-modal__story-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.home-promo-modal__story-main h3 {
+    margin: 0;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.home-promo-modal__winner-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.home-promo-modal__winner-title {
+    margin: 0;
+    text-align: center;
+    line-height: 1.45;
+    font-weight: 600;
+}
+
+.home-promo-modal__winner-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.home-promo-modal__winner-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 1rem 0.8rem;
+    border-radius: 20px;
+    background: rgba(17, 39, 61, 0.05);
+    text-align: center;
+}
+
+.home-promo-modal__avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #27b9d1, #99cb5e);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.home-promo-modal__winner-card span {
+    font-size: 0.88rem;
+    line-height: 1.35;
+    font-weight: 600;
+}
+
+.home-promo-modal__action-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.home-promo-modal__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    background: var(--brand-orange);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 12px 26px rgba(220, 112, 56, 0.2);
+}
+
+.home-promo-modal__cta.is-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.home-promo-modal__community-card {
+    max-width: 736px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.home-promo-modal__community-figure {
+    width: 100%;
+    max-width: 614px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.home-promo-modal__community-mascot {
+    max-width: 614px;
+    border-radius: 20px;
+}
+
+.home-promo-modal__community-card blockquote {
+    width: 100%;
+    max-width: 736px;
+    min-height: 171px;
+    margin: 0;
+    text-align: center;
+    color: var(--brand-ink);
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-promo-modal__community-card p {
+    width: 100%;
+    max-width: 736px;
+    margin: 0;
+    text-align: center;
+    color: var(--brand-ink);
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+.home-promo-modal__community-card p strong {
+    font-weight: 700;
+}
+
+.home-promo-modal__campaign-card {
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: 24px;
+    background: rgba(17, 39, 61, 0.05);
+}
+
+.home-promo-modal__campaign-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.home-promo-modal__campaign-copy h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.home-promo-modal__campaign-copy p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 1.05rem;
+}
+
+.home-promo-modal__campaign-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.home-promo-modal__campaign-columns div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.home-promo-modal__campaign-columns strong {
+    font-size: 1.1rem;
+}
+
+.home-promo-modal__campaign-columns span,
+.home-promo-modal__campaign-columns li {
+    color: #3f4853;
+    line-height: 1.5;
+}
+
+.home-promo-modal__campaign-columns ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.home-promo-modal--success {
+    padding-inline: 0;
+}
+
+.home-promo-modal__success-header {
+    width: min(690px, 92%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+}
+
+.home-promo-modal__success-eyebrow {
+    display: block;
+    width: 68px;
+    max-width: 100%;
+    margin: 0;
+}
+
+.home-promo-modal__success-title {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+.home-promo-modal__success-grid {
+    display: grid;
+    grid-template-columns: 279px minmax(0, 1fr);
+    gap: 1.25rem;
+}
+
+.home-promo-modal__success-grid .home-promo-modal__story-side {
+    gap: 0.95rem;
+    padding-right: 1rem;
+}
+
+.home-promo-modal__success-grid .home-promo-modal__story-figure {
+    padding: 0;
+    background: transparent;
+    border-radius: 24px;
+}
+
+.home-promo-modal__success-image,
+.home-promo-modal__success-caption,
+.home-promo-modal__success-meet-title,
+.home-promo-modal__success-group-title,
+.home-promo-modal__success-winners {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.home-promo-modal__success-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 0.25rem;
+}
+
+.home-promo-modal__success-side-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.home-promo-modal__success-side-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(17, 39, 61, 0.12);
+}
+
+.home-promo-modal__success-copy {
+    width: 100%;
+    max-width: 441px;
+    margin: 0;
+    color: var(--brand-ink);
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.05;
+    text-align: center;
+}
+
+.home-promo-modal__success-copy strong {
+    font-weight: 700;
+}
+
+.home-promo-modal__success-stat {
+    width: 100%;
+    max-width: 399px;
+    margin: 0;
+    padding: 20px 13px;
+    min-height: 101px;
+    border-radius: 20px;
+    background: #f0f1f5;
+    color: var(--brand-ink);
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-promo-modal__success-stat span {
+    display: block;
+    width: 100%;
+    max-width: 373px;
+}
+
+.home-promo-modal__success-stat strong {
+    font-weight: 700;
+}
+
+.home-promo-modal__success-meet-title {
+    width: min(525px, 100%);
+    margin: 0 auto;
+}
+
+.home-promo-modal__success-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.home-promo-modal__success-group-title {
+    width: min(575px, 100%);
+    margin: 0 auto;
+}
+
+.home-promo-modal__success-winners {
+    width: min(768px, 100%);
+    margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+    .home-promo-modal__story-grid,
+    .home-promo-modal__hero-layout,
+    .home-promo-modal__campaign-card,
+    .home-promo-modal__success-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-promo-modal__story-side {
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(17, 39, 61, 0.1);
+        padding-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-promo-modal__winner-row,
+    .home-promo-modal__campaign-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .home-promo-modal__title {
+        font-size: 1.7rem;
+    }
+
+    .home-promo-modal__community-card blockquote {
+        min-height: auto;
+        font-size: 22px;
+        line-height: 1.1;
+    }
+
+    .home-promo-modal__community-card p {
+        font-size: 20px;
+        line-height: 1.1;
+    }
+
+    .home-promo-modal__hero-copy {
+        font-size: 1rem;
+    }
+
+    .home-promo-modal__success-eyebrow {
+        width: 58px;
+    }
+
+    .home-promo-modal__success-grid .home-promo-modal__story-side {
+        padding-bottom: 1.15rem;
+    }
+
+    .home-promo-modal__success-copy,
+    .home-promo-modal__success-stat {
+        font-size: 16px;
+    }
+
+    .home-promo-modal__success-stat {
+        min-height: 88px;
+    }
+}

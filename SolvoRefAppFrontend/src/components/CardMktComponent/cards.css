@@ -1,0 +1,307 @@
+.flex-cotent {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 38px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  position: relative;
+}
+
+.emails {
+  font-size: 12px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  height: 60vh;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  overflow-y: auto;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.card.is-drag-over {
+  border: 2px dashed #007bff;
+  background-color: #e6f2ff;
+}
+
+.pcard {
+  left: 15px;
+  top: 8px;
+  text-align: left;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  width: calc(100% - 15px);
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+  position: relative;
+}
+.swal2-title {
+  text-align: center !important;
+}
+.swal2-html-container {
+  text-align: center !important;
+}
+.movable-item {
+  width: 100%;
+  height: 220px;
+  border-radius: 5px;
+  background-color: #e6dce6;
+  color: #333;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  cursor: grab;
+  font-size: 0.9em;
+  font-weight: bold;
+  position: relative;
+  overflow: visible;
+}
+
+.movable-item.is-drag-over-top {
+  border-top: 3px solid #ff9800;
+  padding-top: 7px;
+}
+
+.movable-item.is-drag-over-bottom {
+  border-bottom: 3px solid #ff9800;
+  padding-bottom: 7px;
+}
+
+.no-items {
+  color: #aaa;
+  font-style: italic;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed transparent;
+  transition: border-color 0.2s ease;
+}
+
+.custom-card-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.card-heade {
+  margin-bottom: 5px;
+}
+.telefonos {
+  font-size: 12px;
+}
+.pcard {
+  position: relative;
+}
+.items-length {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #555;
+}
+.card-name {
+  font-size: 1.01em;
+  font-weight: bold;
+  color: #222;
+}
+
+.card-referred-by {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.card-referred-by .label {
+  font-size: 0.8em;
+  color: #777;
+  margin-bottom: 2px;
+}
+
+.card-referred-by .value {
+  font-size: 0.8em;
+  color: #444;
+}
+
+.card-foote {
+  position: relative;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-right: 50px;
+}
+
+.card-dat {
+  left: 0px;
+  bottom: 10px;
+  font-size: 0.85em;
+  color: #666;
+}
+
+.card-met {
+  right: 55px;
+  bottom: 5px;
+  width: 25px;
+  height: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555;
+  font-size: 0.8em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-initials-selector-container {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  z-index: 10;
+}
+
+.card-initials-display {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9em;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-initials-display h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.card-initials-display:hover {
+  transform: scale(1.05);
+}
+
+.mkt-users-dropdown {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-width: 180px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 20;
+  padding: 5px 0;
+  box-sizing: border-box;
+}
+
+.mkt-users-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mkt-users-dropdown li {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s ease;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.mkt-users-dropdown li:last-child {
+  border-bottom: none;
+}
+
+.mkt-users-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+.mkt-users-dropdown li.selected {
+  background-color: #e0f7fa;
+  font-weight: bold;
+  color: #0056b3;
+}
+
+.mkt-user-option-initials {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8em;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.mkt-user-option-name {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mkt-users-dropdown .loading-message,
+.mkt-users-dropdown .error-message {
+  padding: 10px;
+  text-align: center;
+  color: #555;
+  font-style: italic;
+  font-size: 0.85em;
+}
+.mkt-users-dropdown .error-message {
+  color: #d9534f;
+}
+.mkt-users-dropdown ul li.selected {
+  background-color: #e0f2f7;
+  font-weight: bold;
+  color: #007bff;
+  position: relative;
+}
+
+.mkt-users-dropdown ul li.selected::after {
+  content: "✓";
+  position: absolute;
+  right: 10px;
+  color: #28a745;
+  font-size: 1.2em;
+}
+
+@media (min-width: 1300px) {
+  .card {
+    color: #555;
+  }
+}
+
+@media (max-width: 1250px) {
+  .card {
+    max-width: 300px;
+  }
+}

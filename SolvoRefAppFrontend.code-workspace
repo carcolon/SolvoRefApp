@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "SolvoRefAppFrontend"
+		},
+		{
+			"path": "SolvoRefAppBackend-dev"
+		}
+	],
+	"settings": {}
+}

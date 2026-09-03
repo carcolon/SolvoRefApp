@@ -1,0 +1,224 @@
+.detailFormContainerMain {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.detailFormTitleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.detailFormTitleContainer h5 {
+    margin: 0;
+}
+
+.detailFormTitleContainer p {
+    margin: 0;
+    color: rgb(220, 112, 56);
+    font-weight: 700;
+}
+
+.detailFormContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+    gap: 1rem;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.detailFormDivContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detailFormDivContainer p {
+    margin: 0;
+}
+
+.detailFormDivContainer p:nth-child(2) {
+    color: black;
+    font-weight: 700;
+}
+
+.detailFormPaymentMessage {
+    border: 2px solid rgba(234, 192, 24, 0.5);
+    background-color: rgba(253, 226, 117, 0.5);
+    color: black;
+    padding: 0.2rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.detailFormStatusMessage {
+    border: 2px solid rgba(234, 192, 24, 0.5);
+    background-color: rgba(253, 226, 117, 0.5);
+    color: black;
+    padding: 0.2rem;
+    margin: 0;
+    line-height: 1.45;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.detailFormStatusMessage p {
+    margin: 0 0 0.6rem;
+}
+
+.detailFormStatusMessage p:last-child {
+    margin-bottom: 0;
+}
+
+.detailFormStatusContainer {
+    --status-track-color: #f87818;
+    --status-selected-color: rgb(113, 191, 161);
+    --status-alert-color: #e53935;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 0;
+    max-width: 100%;
+    min-height: 132px;
+    padding: 12px 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+}
+
+.detailFormStatusContainer::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    top: 50%;
+    height: 90px;
+    transform: translateY(-50%);
+    background: var(--status-track-color);
+    border-radius: 999px;
+    z-index: 0;
+}
+
+.detailFormStatusContainer img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.detailFormStatusContainer .exception-status-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.detailFormStatusContainer .exception-status-icon-expired {
+    width: 54px;
+    height: 42px;
+}
+
+.detailFormStatusContainer .on-hold-status-icon {
+    width: 42px;
+    height: 52px;
+}
+
+.hire {
+    width: 50px !important;
+}
+
+.detailFormStatusContainerItem {
+    position: relative;
+    width: 124px;
+    height: 90px;
+    flex: 0 0 124px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 0.5rem 0.65rem;
+    background: transparent;
+    border-radius: 0;
+    z-index: 2;
+    isolation: isolate;
+}
+
+.formStatus {
+    color: rgb(113, 191, 161);
+}
+
+.formStatusAlert {
+    color: #e53935;
+}
+
+.detailFormStatusContainerItemSelected {
+    width: 128px;
+    height: 128px;
+    flex-basis: 128px;
+    margin: 0 -4px;
+    background-color: var(--status-selected-color);
+    border-radius: 50%;
+    z-index: 4;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.96);
+}
+
+.detailFormStatusContainerItemAlert {
+    background-color: var(--status-alert-color);
+    padding: 0.55rem 0.65rem;
+}
+
+.detailFormStatusContainerItem p {
+    margin: 0;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 95px;
+    overflow-wrap: anywhere;
+}
+
+.detailFormStatusContainerItemAlert p {
+    display: block;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    max-width: 82px;
+}
+
+@media (max-width: 768px) {
+    .detailFormContainer {
+        grid-template-columns: 1fr; /* 1 columna */
+    }
+
+    .span-2 {
+        grid-column: span 1;
+    }
+
+    .detailFormStatusContainer {
+        justify-content: flex-start;
+        min-height: 122px;
+        padding-inline: 8px;
+    }
+
+    .detailFormStatusContainer::before {
+        left: 8px;
+        right: 8px;
+        height: 78px;
+    }
+
+    .detailFormStatusContainerItem {
+        width: 108px;
+        height: 78px;
+        flex-basis: 108px;
+        margin: 0;
+    }
+
+    .detailFormStatusContainerItemSelected {
+        width: 112px;
+        height: 112px;
+        flex-basis: 112px;
+        margin: 0 -3px;
+    }
+}

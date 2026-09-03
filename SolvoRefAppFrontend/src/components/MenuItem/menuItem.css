@@ -1,0 +1,33 @@
+.itemContainer {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.8rem 0.9rem;
+    border-radius: 18px;
+    border: 1px solid transparent;
+}
+
+.itemContainer img {
+    width: 32px;
+}
+
+.itemContainer p {
+    margin: 0;
+    color: #17324a;
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.selected {
+    background: linear-gradient(135deg, rgba(39, 185, 209, 0.15), rgba(220, 112, 56, 0.12));
+    border-color: rgba(39, 185, 209, 0.16);
+}
+
+@media (max-width: 900px) {
+    .itemContainer {
+        min-height: 60px;
+    }
+}

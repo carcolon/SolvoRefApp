@@ -1,0 +1,186 @@
+.fullImg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/fondo_referral_ENG.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.logoLoginReferral {
+    height: 15%;
+    width: 50%;
+}
+
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    top: 19vh;
+    left: 56vw;
+    background-color: rgba(255, 255, 255, 0.88);
+    height: 60%;
+    width: 30%;
+    border-radius: 32px;
+    text-align: center;
+    box-shadow: 0 22px 48px rgba(11, 33, 53, 0.18);
+    overflow: hidden;
+    gap: 1rem;
+    padding: 12px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+}
+
+.content img {
+    align-self: center;
+}
+
+.content p {
+    margin: 0;
+}
+.blueStart1 {
+    position: absolute;
+    left: -16%;
+    bottom: -15%;
+    height: 40%;
+    width: 40%;
+}
+
+.blueStart2 {
+    position: absolute;
+    right: -16%;
+    top: -15%;
+    height: 40%;
+    width: 40%;
+}
+
+.b-outline {
+    padding: 12px 25px;
+    border: 2px solid rgb(220, 112, 56);
+    color: #fff;
+    background-color: rgb(220, 112, 56);
+    border-radius: 50px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    outline: none;
+    box-shadow: none;
+    position: relative;
+    min-width: 180px;
+}
+
+.b-outline:hover {
+    background-color: #fff;
+    color: rgb(220, 112, 56);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgb(220, 112, 56);
+    border: 2px solid rgb(220, 112, 56);
+}
+
+.b-outline:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(26, 115, 232, 0.2);
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+}
+.parrafo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+.parrafo2 {
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.auth-error {
+    align-self: center;
+    width: min(100%, 420px);
+    padding: 10px 14px;
+    border: 1px solid rgba(180, 35, 24, 0.28);
+    border-radius: 8px;
+    background: rgba(254, 243, 242, 0.94);
+    color: #b42318;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+/* Media query para pantallas extra-grandes (ej. 2560px y más) */
+
+@media (min-width: 1500px) and (max-width: 1920px) {
+    h2 {
+        font-size: 2em; /* Títulos más grandes para legibilidad a distancia */
+    }
+
+    .parrafo {
+        font-size: 1.1em; /* Párrafos más grandes */
+    }
+
+    .parrafo2 {
+        font-size: 1.1em;
+    }
+
+    .b-outline {
+        font-size: 1.2em; /* Texto del botón más grande */
+    }
+}
+
+@media (max-width: 1300px) {
+    .b-outline {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .fullImg {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100svh;
+        background-attachment: scroll;
+    }
+
+    .content {
+        top: 0;
+        left: 0;
+        width: min(92vw, 520px);
+        min-height: 460px;
+        height: auto;
+        margin: 6rem auto 2rem;
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .content {
+        width: calc(100vw - 1.25rem);
+        border-radius: 26px;
+        margin-top: 5.2rem;
+    }
+
+    .logoLoginReferral {
+        width: min(72%, 240px);
+        height: auto;
+    }
+
+    .blueStart1,
+    .blueStart2 {
+        width: 48%;
+        height: auto;
+    }
+
+    .b-outline {
+        width: 100%;
+        min-width: 0;
+    }
+}

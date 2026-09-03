@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Security Remediation Report - Solvo Referrals App</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --ok: #0f766e;
+      --line: #e5e7eb;
+      --accent: #0b5fff;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px 24px;
+    }
+    .header, .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    h1, h2, h3 {
+      margin: 0 0 10px;
+    }
+    h1 { font-size: 26px; }
+    h2 { font-size: 20px; }
+    h3 { font-size: 16px; color: var(--muted); }
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .status {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--ok);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+    th {
+      background: #f9fafb;
+    }
+    .ok {
+      font-weight: 700;
+      color: var(--ok);
+    }
+    .path {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+      word-break: break-all;
+    }
+    .footer {
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+      margin-top: 8px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="header">
+      <h1>Security Remediation Report</h1>
+      <h3>Solvo Referrals App (Backend + Frontend)</h3>
+      <div class="meta">
+        <div><strong>Original source:</strong> Cybersecurity critical/high findings report</div>
+        <div><strong>Validation scan:</strong> 2026-03-12 08:03 (folder: <span class="path">reports/20260312-080232</span>)</div>
+        <div><strong>Assessment conclusion:</strong> Critical/High findings addressed and re-validated</div>
+      </div>
+      <div class="status">STATUS: REMEDIATED</div>
+    </section>
+
+    <section class="card">
+      <h2>Executive Summary</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Control Area</th>
+            <th>Tool</th>
+            <th>Result</th>
+            <th>Outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Static Code Analysis (Backend)</td>
+            <td>Semgrep OWASP</td>
+            <td>0 findings</td>
+            <td class="ok">PASS</td>
+          </tr>
+          <tr>
+            <td>Static Code Analysis (Frontend)</td>
+            <td>Semgrep OWASP</td>
+            <td>0 findings</td>
+            <td class="ok">PASS</td>
+          </tr>
+          <tr>
+            <td>Secret Leakage (Backend)</td>
+            <td>Gitleaks</td>
+            <td>0 findings</td>
+            <td class="ok">PASS</td>
+          </tr>
+          <tr>
+            <td>Secret Leakage (Frontend)</td>
+            <td>Gitleaks</td>
+            <td>0 findings</td>
+            <td class="ok">PASS</td>
+          </tr>
+          <tr>
+            <td>Dependency Security (Backend)</td>
+            <td>.NET vulnerable packages</td>
+            <td>No vulnerable packages</td>
+            <td class="ok">PASS</td>
+          </tr>
+          <tr>
+            <td>Dependency Security (Frontend)</td>
+            <td>npm audit</td>
+            <td>critical=0, high=0, total=0</td>
+            <td class="ok">PASS</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Evidence Files</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Evidence</th>
+            <th>File</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Scan summary</td>
+            <td class="path">reports/20260312-080232/summary.txt</td>
+          </tr>
+          <tr>
+            <td>Backend vulnerable packages</td>
+            <td class="path">reports/20260312-080232/dotnet-vulnerable-back.txt</td>
+          </tr>
+          <tr>
+            <td>Frontend npm audit</td>
+            <td class="path">reports/20260312-080232/npm-audit-front.json</td>
+          </tr>
+          <tr>
+            <td>Semgrep backend</td>
+            <td class="path">reports/20260312-080232/semgrep-back.json</td>
+          </tr>
+          <tr>
+            <td>Semgrep frontend</td>
+            <td class="path">reports/20260312-080232/semgrep-front.json</td>
+          </tr>
+          <tr>
+            <td>Gitleaks backend</td>
+            <td class="path">reports/20260312-080232/gitleaks-back.sarif</td>
+          </tr>
+          <tr>
+            <td>Gitleaks frontend</td>
+            <td class="path">reports/20260312-080232/gitleaks-front.sarif</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Pipeline Security Controls</h2>
+      <ul>
+        <li>Frontend pipeline includes npm audit security gate and report artifact publication.</li>
+        <li>Backend pipeline includes .NET vulnerable package security gate and report artifact publication.</li>
+        <li>Triggers and PR validation configured for <strong>dev</strong> and <strong>main</strong>.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Closure Statement</h2>
+      <p>
+        Based on the evidence produced by the 2026-03-12 scan set, the critical/high findings
+        for this remediation cycle are addressed in code and currently validated as closed.
+      </p>
+    </section>
+
+    <div class="footer">Generated by remediation team - 2026-03-12</div>
+  </div>
+</body>
+</html>

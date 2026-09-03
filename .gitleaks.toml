@@ -1,0 +1,6 @@
+[allowlist]
+description = "Allow placeholders and redacted values used intentionally in config/templates"
+regexes = [
+  '''#\{[A-Za-z0-9_]+\}#''',
+  '''REDACTED_API_KEY_[A-Z_]+'''
+]

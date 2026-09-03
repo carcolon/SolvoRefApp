@@ -1,0 +1,126 @@
+﻿.select-variant.country-code-select {
+    position: relative;
+    flex-grow: 1; /* Permite que ocupe espacio si estÃ¡ en un flex container */
+}
+
+.select-variant.country-code-select .custom-dropdown-menu {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    position: absolute; /* fallback para usos no portal */
+    top: calc(100% + 0.35rem); /* Coloca el menÃº debajo con un pequeÃ±o gap */
+    left: 0;
+    width: 100%;
+    max-height: 200px; /* Limita la altura y aÃ±ade scroll si hay muchas opciones */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    z-index: 50;
+    border-radius: 0 0 8px 8px;
+    overscroll-behavior: contain;
+}
+
+.custom-dropdown-menu--portal {
+    position: fixed !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    background-color: #fff;
+    z-index: 2000 !important;
+}
+
+.custom-dropdown-menu--portal .custom-dropdown-item,
+.custom-dropdown-menu--portal .custom-dropdown-no-results {
+    list-style: none;
+}
+
+.select-variant.country-code-select.is-open::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+.select-variant.country-code-select .custom-dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    white-space: nowrap; /* Evita que el texto se rompa */
+    overflow: hidden;
+    text-overflow: ellipsis; /* AÃ±ade puntos suspensivos si el texto es muy largo */
+}
+.select-variant.country-code-select .custom-dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+.select-variant.country-code-select::after {
+    content: '\25BC'; /* La flecha por defecto apunta hacia abajo */
+    position: absolute;
+    right: 15px; /* Ajusta la posiciÃ³n a la derecha */
+    top: 65%;
+    transform: translateY(-50%); /* Centra verticalmente */
+    pointer-events: none; /* Asegura que el clic pase a travÃ©s del Ã­cono al input */
+    color: #888; /* Color de la flecha */
+    font-size: 0.8em; /* TamaÃ±o de la flecha */
+    transition: transform 0.3s ease; /* TransiciÃ³n suave para la rotaciÃ³n */
+}
+
+/* Nueva regla: Rota la flecha cuando el contenedor tiene la clase 'is-open' */
+.select-variant.country-code-select.is-open::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+.select-variant.country-code-select::after {
+    /* ... otras propiedades ... */
+    transition: transform 0.3s ease; /* Â¡Esta es crucial! */
+}
+.input-form {
+    margin-top: 0.1rem;
+}
+
+.custom-dropdown-no-results {
+    margin: 0.5rem;
+}
+
+/* OutlinedSelectInput.css */
+
+.outlined-input-container.has-error .input-outline {
+    border-color: #dc3545;
+}
+
+.outlined-input-container:has(.toolTipInput) {
+    z-index: 10001;
+}
+
+.custom-dropdown-item.active {
+    background: #f1f3f5;
+}
+
+.react-tooltip.toolTipInput,
+.toolTipInput {
+    width: 200px !important;
+    z-index: 2147483647 !important;
+    --rt-opacity: 1 !important;
+    --rt-color-dark: #fde275 !important;
+    --rt-color-white: #000 !important;
+    background-color: #fde275 !important;
+    background: #fde275 !important;
+    color: black !important;
+    opacity: 1 !important;
+    border: 1px solid #e8c85b !important;
+    box-shadow: 0 10px 24px rgba(11, 33, 53, 0.18) !important;
+}
+
+.react-tooltip-arrow.toolTipInputArrow,
+.toolTipInputArrow {
+    z-index: 2147483647 !important;
+    background-color: #fde275 !important;
+    background: #fde275 !important;
+    opacity: 1 !important;
+}
+
+@media (max-width: 768px) {
+    .custom-dropdown-menu--portal {
+        max-width: calc(100vw - 1.5rem) !important;
+    }
+
+    .select-variant.country-code-select .custom-dropdown-item {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+}

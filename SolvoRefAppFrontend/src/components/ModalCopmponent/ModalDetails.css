@@ -1,0 +1,470 @@
+/* ReferralDetailModal.css */
+
+/* Estilos para el fondo oscurecido que cubre toda la pantalla */
+.referral-modal-backdrop {
+    position: fixed; /* Fija el elemento en la ventana del navegador */
+    top: -15px;
+    left: 0;
+    width: 100vw; /* Ocupa el 100% del ancho de la ventana */
+    height: 105vh; /* Ocupa el 100% del alto de la ventana */
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente oscuro */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenido del modal */
+    align-items: center; /* Centra verticalmente el contenido del modal */
+    z-index: 1000000; /* Asegura que esté por encima de casi todo lo demás */
+}
+.recurso21 {
+    display: flex;
+    justify-content: center;
+    background-image: url('../../assets/images/Recurso\ 21.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 111px;
+    height: 50px;
+    position: relative;
+    left: 165px;
+    top: -30px;
+}
+/* Estilos para el contenedor principal del contenido del modal */
+.referral-modal-content {
+    /* Fondo con la imagen especificada */
+    background-image: url('../../assets/images/Recurso 53.png'); /* ¡Asegúrate que esta ruta es correcta para tu imagen de fondo! */
+    background-size: cover; /* La imagen cubre todo el área del contenedor */
+    background-position: center; /* Centra la imagen en el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+
+    /* Padding para el contenido interno (top, right, bottom, left) */
+    /* El 40px en 'padding-left' crea la sangría a la derecha */
+    padding: 20px 20px 20px 40px;
+
+    max-width: 800px; /* Ancho máximo del modal */
+    width: 730px; /* Ocupa el 90% del ancho disponible, adaptándose a pantallas más pequeñas */
+    height: 410px; /* Altura fija del modal */
+
+    position: relative; /* Esencial para que el botón de cierre se posicione absolutamente dentro de él */
+    border-radius: 8px; /* Bordes redondeados */
+
+    margin-top: 80px;
+    /* Configuración de Flexbox para organizar el contenido interno */
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: flex-start; /* Alinea los elementos al inicio del contenedor flex (arriba) */
+    align-items: flex-start; /* **Alinea los ítems a la izquierda dentro del contenedor** */
+    gap: 10px; /* Espacio uniforme entre los elementos de texto */
+}
+
+/* Estilos para el título "Detalles del Referido:" */
+.referral-modal-content h2 {
+    color: #666; /* Color del texto */
+    font-size: 16px;
+    margin-bottom: 0; /* Elimina margen inferior extra (manejado por gap) */
+    margin-top: -5px; /* Elimina margen superior extra */
+    margin-left: 85px; /* Asegura que no haya margen izquierdo adicional */
+    text-align: left; /* Alinea el texto a la izquierda dentro de su propio elemento */
+    width: 100%; /* Permite que text-align: left funcione correctamente */
+}
+.contenido {
+    position: relative;
+    top: 15px;
+    left: 25px;
+}
+
+/* Estilos para el nombre del referido */
+.nombre {
+    color: rgb(220, 112, 56); /* Color naranja específico */
+    font-size: 20px;
+    font-weight: bold; /* Texto en negrita */
+    margin-bottom: 5px; /* Elimina margen inferior extra */
+    margin-left: 84px; /* Asegura que no haya margen izquierdo adicional */
+    text-align: left; /* Alinea el texto a la izquierda */
+    width: 100%; /* Permite que text-align: left funcione correctamente */
+    margin-top: 0px;
+}
+.foot {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    position: relative;
+    right: 480px;
+    top: -10px;
+}
+.textfoot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    right: 820px;
+    top: 20px;
+    gap: 65px;
+    flex-wrap: nowrap;
+    width: a;
+}
+.emaill {
+    margin-left: 60px;
+    margin-top: -5px;
+}
+.referalidd {
+    margin-left: 60px;
+    margin-top: 10px;
+}
+.countryy {
+    margin-left: 60px;
+    margin-top: 10px;
+}
+.phonee {
+    position: relative;
+    left: 410px;
+    top: -275px;
+}
+.areaa {
+    position: relative;
+    left: 410px;
+    top: -165px;
+}
+.cityy {
+    position: relative;
+    left: 410px;
+    top: -205px;
+}
+.recurso23 {
+    position: relative;
+    left: 80px;
+    top: -10px;
+}
+.statusss {
+    position: relative;
+    left: 12px;
+    top: 10px;
+}
+
+.strongs {
+    position: relative;
+    left: 32px;
+    top: 10px;
+}
+.contenedor-puñoss {
+    background-color: #666; /* Puedes ajustar este tono de verde si lo deseas */
+    border-radius: 10px; /* Ajusta este valor si quieres más o menos redondez */
+    width: 100px; /* Ejemplo: un ancho de 100 píxeles */
+    height: 50px; /* Ejemplo: una altura de 100 píxeles */
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    position: relative;
+    top: -116px;
+    left: 400px;
+}
+
+.estado-item {
+    /* Estilos base para cada elemento de estado */
+    display: flex;
+    flex-direction: column; /* Para apilar el ícono y el texto */
+    align-items: center; /* Centrar horizontalmente el contenido */
+    justify-content: center; /* Centrar verticalmente el contenido */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 5px; /* Espacio entre los elementos de estado */
+    min-width: 120px; /* Ancho mínimo para que los contenedores no sean demasiado pequeños */
+    text-align: center;
+}
+
+/* Clases para los fondos opacos */
+.fondo-hired {
+    background-color: rgba(50, 205, 50, 0.2); /* #32CD32 con 20% de opacidad */
+}
+
+.fondo-inprogress {
+    background-color: rgba(0, 123, 255, 0.2); /* #007bff con 20% de opacidad */
+}
+
+.fondo-rejected {
+    background-color: rgba(255, 0, 0, 0.2); /* #FF0000 con 20% de opacidad */
+}
+
+/* Si tienes otros estados, define sus fondos aquí */
+.fondo-firstcontact {
+    background-color: rgba(
+        0,
+        123,
+        255,
+        0.2
+    ); /* #6C757D con 20% de opacidad (Estado actual de ejemplo) */
+}
+
+.fondo-interview {
+    background-color: rgba(
+        0,
+        123,
+        255,
+        0.2
+    ); /* #6C757D con 20% de opacidad (Estado futuro de ejemplo) */
+}
+
+.fondo-default-gris {
+    background-color: rgba(108, 117, 125, 0.1); /* Un gris muy claro y opaco */
+}
+
+/* Estilos específicos para la imagen del icono de los puños */
+.hired-element .hired-icon {
+    width: 40px; /* ¡Icono más grande! Ajusta si es necesario */
+    height: auto; /* Mantiene la proporción */
+    display: block;
+    position: relative;
+    left: 1px;
+}
+
+/* Estilos específicos para el texto "Hired" */
+.hired-element .hired-text {
+    color: #222;
+    font-size: 14px; /* Puedes hacer el texto un poco más pequeño que el ícono si prefieres, o quitarlo */
+}
+
+/* Efecto al pasar el ratón sobre el elemento "Hired" */
+.hired-element:hover {
+    background-color: #555;
+}
+
+/* Estilos para los párrafos de email, estado, área */
+.referral-modal-content p {
+    margin-bottom: 0; /* Elimina margen inferior extra */
+    font-size: 17px;
+    color: #000; /* Color del texto */
+    width: 100%; /* Permite que text-align: left funcione correctamente */
+}
+
+/* Estilos para el texto en negrita dentro de los párrafos */
+.referral-modal-content span {
+    color: #666; /* Asegura que el texto en negrita sea oscuro */
+    font-size: 14px;
+}
+
+/* Estilos para el botón de cierre (la imagen 'x') */
+.referral-modal-close-button {
+    position: absolute; /* Posicionamiento absoluto dentro de .referral-modal-content */
+    top: -20px; /* 10px desde el borde superior */
+    left: 610px; /* 10px desde el borde derecho */
+    width: 32px; /* Ancho de la imagen */
+    height: 32px; /* Altura de la imagen */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+    z-index: 10; /* Asegura que la 'x' esté por encima de otros elementos */
+    border: none; /* Elimina cualquier borde */
+    padding: 0; /* Elimina cualquier padding */
+    background: none; /* Elimina cualquier color de fondo */
+    transition: transform 0.2s ease-in-out; /* Suaviza la animación de hover */
+}
+.statusss {
+    position: relative;
+    top: -12px;
+    left: 170px;
+}
+
+/* Efecto al pasar el mouse sobre el botón de cierre */
+.referral-modal-close-button:hover {
+    transform: scale(1.1); /* Hace la imagen ligeramente más grande */
+    opacity: 0.8; /* Reduce ligeramente la opacidad */
+}
+/* Contenedor principal que organiza los tres grupos de estado horizontalmente */
+.estados-inferiores-wrapper {
+    display: flex; /* Habilita Flexbox */
+    flex-direction: row; /* Coloca los ítems en una fila (horizontal) */
+    flex-wrap: nowrap; /* Evita que los grupos salten de línea */
+    justify-content: space-around; /* o space-between, center, etc. */
+    align-items: flex-start; /* Alinea los grupos al inicio verticalmente (arriba) */
+    gap: 20px; /* Espacio entre cada grupo de ícono+texto */
+    width: auto; /* Permite que el ancho se ajuste */
+    max-width: 100%; /* Asegura que no se desborde */
+    top: -165px; /* Si necesitas un margen superior */
+    position: relative;
+    left: 50px;
+}
+.referral-status-text {
+    white-space: nowrap;
+    position: relative;
+    top: 15px;
+    right: 104px; /* Este valor es bastante grande, ten cuidado con el desborde */
+    font-weight: bold; /* Si es el status, es probable que quieras que se vea fuerte */
+    color: #666; /* O el color que desees */
+}
+/* Estilos para cada grupo individual de ícono y texto */
+.estado-item {
+    display: flex; /* Habilita Flexbox */
+    flex-direction: column; /* Apila el ícono y el texto verticalmente */
+    align-items: center; /* Centra el ícono y el texto horizontalmente dentro de su propio grupo */
+    text-align: center; /* Centra el texto si este se extendiera a varias líneas (aunque lo evitamos) */
+
+    /* Opcional: Ancho mínimo para que cada grupo tenga espacio */
+    min-width: 90px; /* Ajusta este valor según el ancho de tus textos e íconos */
+    padding: 5px; /* Pequeño padding alrededor de cada grupo */
+}
+
+/* Estilos para las imágenes de los íconos */
+.icono-estado {
+    /* Los estilos inline que tenías en el HTML pueden sobrescribir esto.
+       Si quieres un tamaño uniforme, es mejor ponerlo aquí y quitar el inline. */
+    width: 40px; /* O el tamaño deseado para todos los iconos */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 5px; /* Espacio entre el ícono y el texto */
+}
+
+/* Estilos para el texto de cada estado */
+.estado-item p {
+    white-space: nowrap; /* ¡Esta es la CLAVE para evitar que el texto se parta en dos líneas! */
+    font-size: 14px; /* Ajusta el tamaño de la fuente para que quepa bien */
+    color: #333; /* Color del texto */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+    .estados-inferiores-wrapper {
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .estado-item {
+        min-width: unset; /* Permite que el ancho se ajuste más libremente en móviles */
+    }
+    .estado-item p {
+        font-size: 12px; /* Reduce la fuente para que quepa mejor en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 600px) {
+    .estados-inferiores-wrapper {
+        flex-direction: row;
+        gap: 5px; /* Espacio vertical entre los grupos apilados */
+        left: -50px;
+        position: relative;
+        top: -60px;
+    }
+
+    .estado-item p {
+        white-space: normal; /* Si se apilan, podemos permitir que el texto se envuelva */
+    }
+    .hired-element {
+        position: relative;
+        left: -170px;
+        top: 100px;
+    }
+}
+
+/* --- Ajustes Responsivos para el Modal --- */
+@media (max-width: 600px) {
+    .referral-modal-content {
+        /* Ajuste del padding para móviles */
+        /* top, right, bottom, left */
+        padding: 15px 15px 15px 25px; /* Menor sangría izquierda en pantallas pequeñas */
+        max-width: 95%; /* Ocupa más ancho en pantallas móviles */
+        height: auto; /* La altura se ajusta al contenido */
+        min-height: 250px; /* Altura mínima para que no se vea demasiado pequeño */
+        gap: 8px; /* Espacio ligeramente menor entre elementos */
+    }
+
+    .referral-modal-content h2 {
+        font-size: 16px; /* Título más pequeño en móviles */
+        margin-top: 5px; /* Un poco de margen superior para los títulos */
+    }
+
+    .nombre {
+        position: relative;
+        left: -100px;
+        font-size: 18px; /* Nombre ligeramente más pequeño */
+    }
+    .your {
+        position: relative;
+        left: -80px;
+    }
+    .referral-modal-content p {
+        font-size: 14px; /* Párrafos más pequeños */
+    }
+
+    .referral-modal-close-button {
+        top: -8px; /* Posición ajustada para el botón de cierre */
+        left: 250px;
+        width: 25px; /* Tamaño del botón de cierre ajustado */
+        height: 25px;
+    }
+    .contenido {
+        position: relative;
+    }
+    .phonee {
+        position: relative;
+        left: 95px;
+        top: -165px;
+    }
+    .cityy {
+        position: relative;
+        left: 210px;
+        top: -210px;
+    }
+    .areaa {
+        position: relative;
+        left: 100px;
+        top: -66px;
+    }
+    .emaill {
+        position: relative;
+        left: -80px;
+        top: 10px;
+    }
+    .referalidd {
+        position: relative;
+        left: -80px;
+        top: 15px;
+    }
+    .countryy {
+        position: relative;
+        left: -80px;
+        top: 20px;
+    }
+    .statusss {
+        position: relative;
+        left: 100px;
+        top: 28px;
+    }
+    .strongs {
+        position: relative;
+        left: -35px;
+        top: 50px;
+    }
+    .recurso21 {
+        position: relative;
+        left: 95px;
+        top: 10px;
+    }
+    .recurso23 {
+        width: 120px;
+        position: relative;
+        left: -15px;
+    }
+}
+
+.currentStatus {
+    margin-left: 30px;
+}
+
+@media (max-width: 768px) {
+    .referral-modal-backdrop {
+        top: 0;
+        height: 100vh;
+        padding: 1rem;
+        box-sizing: border-box;
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    .referral-modal-content {
+        width: min(92vw, 730px);
+        max-width: 100%;
+        max-height: calc(100vh - 2rem);
+        overflow: auto;
+        margin-top: 0;
+    }
+}
+
+/* Ajustes adicionales para pantallas aún más pequeñas (ej. smartphones muy pequeños) */
+@media (max-width: 600px) {
+    .referral-modal-content {
+        padding: 10px 10px 10px 20px; /* Reduce un poco más el padding general y el izquierdo */
+    }
+}

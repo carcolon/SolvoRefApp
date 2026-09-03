@@ -1,0 +1,848 @@
+
+
+===== PAGE 1 =====
+
+ 
+                     
+             
+Information Security Baseline Requirements for New 
+Deployments 
+ 
+Purpose & Scope 
+Thi  d        p             p  h   iv , d   il d,   d    i   bl  li    f I f     i   
+S    i y   d GRC   q i        f     w    h  l gy p  j     i v lvi g A  ifi i l 
+I   llig     (AI), d   b    ,       p         h  l gi  l   l  i     R q i            
+ xpli i ly g   p d by i pl       i    yp : O -P   i  , Cl  d,   d Hyb id  Th          
+ lig   wi h l  di g f    w  k    d     d  d  i  l di g OWASP, ISO/IEC 
+27001/27002/27017/27018, NIST (800 -53/30/37/61/63/88/190/52 2), GDPR, COBIT, CIS 
+C     l /B   h   k , PCI DSS v4 0, HIPAA S    i y R l , SOC 2 TSC,   d CISA g id       
+  
+
+===== PAGE 2 =====
+
+ 
+                     
+             
+Table of Contents 
+ 
+P  p    & S  p  ............................................................................................................ 1 
+1  C    -    i g R q i        ( ppli  bl      ll i pl       i    yp  ) ........ 4 
+   G v       , Ri k   d C  pli     (GRC) ...................................................... 4 
+b  I f     i   Cl   ifi   i  , DLP   d d    h  dli g ....................................... 4 
+   A    , IP   d d   b    i v     y (CMDB/IPAM/DB     l g) ....................... 5 
+d  S  v    ................................................................................................................. 5 
+   E dp i   (C  p     ) ....................................................................................... 6 
+f  IAM, PAM, RBAC/ABAC, ZTNA   d            ifi   i   ................................... 7 
+g  C yp  g  phy,     ifi        d k y     g      (KMS/HSM/PKI) ............. 8 
+h  L ggi g, SIEM/UEBA   d       i   .................................................................... 9 
+i  V l    bili y   d p   h     g      (i  l di g      i       d   d ).. 9 
+j  S      SDLC,  ppli   i      d API  (OWASP) .............................................. 10 
+k  B  i     C   i  i y & R  ili     (BCDR) ...................................................... 10 
+2  O ‑P   i   D pl y     ..................................................................................... 11 
+   P  i     /N  w  k   d DMZ ........................................................................... 11 
+b  O ‑p    d   b     ......................................................................................... 12 
+   O ‑p    AI (   h        /  d l /d       ) .............................................. 12 
+d  C   ifi     /PKI   d i      l  TLS ................................................................. 13 
+3  Cl  d (I  S/P  S/S  S) D pl y     .............................................................. 14 
+   G v          d p       (CSPM/g   d  il ) .............................................. 14 
+b  Cl  d-N  iv  Th     D     i   (C     l Pl   ) ........................................... 14 
+   Cl  d    w  k/p  i        d i        p bli   i   .................................... 15 
+
+===== PAGE 3 =====
+
+ 
+                     
+             
+d  Id   i i  , k y    d         ............................................................................. 16 
+   D      d d   b     (DB  S, l k  ,    ly i  ) ............................................ 16 
+f  Cl  d-N  iv  C    i    S    i y & G v        F    w  k .................... 17 
+g  AI i   l  d (   vi      d   pil   ) ................................................................. 18 
+h  C   ifi     /TLS     dg  .................................................................................. 18 
+i  C    A    ly D     i   (D  i l  f W ll  ) .................................................. 19 
+4  Hyb id (O ‑p    + Cl  d) D pl y     ............................................................ 19 
+   S             ivi y, Z    T       d     ifi      .......................................... 19 
+b  U ifi d SIEM/SOAR   d  p    i    ................................................................ 20 
+   V l    bili i  ,    fig    i     d I C ........................................................... 21 
+d  D   /DB   d f d     d AI ............................................................................... 21 
+5  M bil  Appli   i   S    i y ................................................................................ 22 
+   M bil  Appli   i   S      i pl       i   ................................................. 22 
+6  D vi  ‑l v l    l /      l  (    l g) ................................................................ 22 
+7  API‑ p  ifi    q i        ( pply     ll  yp  ) ................................................. 23 
+8  S f w   , li    i g   d   b   ip i       g      ....................................... 24 
+9  Mi i    p  j        p        i   i  (G /N ‑G ) ......................................... 24 
+ 
+ 
+ 
+ 
+  
+
+===== PAGE 4 =====
+
+ 
+                     
+             
+1. Cross-cutting Requirements (applicable to all implementation 
+types) 
+ 
+a. Governance, Risk and Compliance (GRC) 
+Objective: E       h  p  j     p         d        di  bl        l f    w  k  
+Technical requirements 
+• F    l p li i     d     d  d :      i y,  l   ifi   i  /l b li g, DLP, 
+IAM/PAM,   yp  g  phy,        SDLC, l ggi g/      i  , p iv  y, 
+ h  g      g       
+• R g l    y     ix by d     yp  (PCI, PHI/HIPAA, p      l d   /GDPR, 
+SOC2)  
+• Ri k     g      (NIST 800 ‑30/37    h d l gy), S          f 
+Appli  bili y (S A)  g i    ISO/IEC 27001/27002, COBIT f   g v         
+• Thi d‑p   y d   dilig    : SOC 2/ISO 27001  f  h  p  vid  , DPA (GDPR), 
+BAA (HIPAA),      i y  l     , i  id       ifi   i    
+Acceptance criteria: P li i    pp  v d   d v   i   d;  i k  wi h           
+pl  ; S A d        d;   g l    y     ix    pl     
+Evidence: Sig  d p li i  ,  i k   gi    , S A,           wi h DPA/BAA  
+ 
+b. Information Classification, DLP and data handling 
+ 
+Technical requirements 
+ 
+• Cl   ifi   i     h    (P bli  / I      l / C  fid   i l / R    i   d)   d 
+l b li g  ppli d    d        ,    il ,   p  i   i  , b  k      d AI 
+p   p  /   p     
+• DLP by  l      d  h    l (  dp i  ,    il, w b,  l  d, AI); R PA 
+(GDPR)   d DPIA f   high ‑ i k p      i g;       i     d        
+di p   l (NIST 800‑88)  
+
+===== PAGE 5 =====
+
+ 
+                     
+             
+Acceptance criteria:  A  iv  l b l    d DLP   l   p    h    l;       i   
+p    d     by  l    
+Evidence: D        l g, DLP p li i  ,   p       d    pl    
+ 
+c. Asset, IP and database inventory (CMDB/IPAM/DB catalog) 
+ 
+Technical requirements 
+ 
+• CMDB wi h  w   ,   i i  li y,   vi       , IP, OS, l    i     d  xp       
+• IPAM wi h      v  i   /l     ;        DNS/DHCP;    di      xp       f 
+d   b      
+• D   b        l g (  gi  , v   i  , pl gi  ,   dp i   , HA/DR, 
+    yp i  )  
+ 
+Acceptance criteria:  CMDB   v   g     100%; IPAM wi h       fli   ; 
+   pl    DB     l g  
+Evidence: CMDB/IPAM  xp    ; DB i v     y; L2/L3/L7 di g      
+ 
+d. Servers  
+ 
+Technical requirements 
+Scope: Cloud, On-Premises, Hybrid, etc. 
+ 
+• I    ll  h  l      OS v   i    
+• EDR/XDR (i  l  i  ), EPP/AV  
+• CIS h  d  i g (CIS ≥ 85%)  
+• Appli   i         l ( ll wli  )      i i  l    v     
+• P   h b   d     h      bli h d SLA   
+• ACL     p  v       w  k         
+• SIEM  g    i    ll d (M  i   i g)  
+
+===== PAGE 6 =====
+
+ 
+                     
+             
+• U         y    vi    di  bl d  
+• Ch  g   d i i              
+• E  bl  h    fi  w ll  
+o All w   ly    h  iz d p    /IP   
+o Bl  k           y    vi   /p      
+• Di  bl            y                
+• C  fig       NTP f    i    y  h   iz  i    
+• D l   /M dify d f  l         
+• Ch  g  d f  l     fig    i     
+• S    g p   w  d p li y (b   d    O  S      p   w  d P li y) 
+• V l    bili y     g       g    i    ll d / A  h   i    d       
+• R g l   b  k p  (b  k p   h  ld b      yp  d/      d)   d       
+• D di    d   l   ( h     v    h  ld     h v    l ipl  
+p  p    / ppli   i   )  
+• C  fig         g            g            l  (  ly  d i i         
+  d    h  iz d    ff)  
+ 
+ 
+e. Endpoint (Computers) 
+ 
+Technical requirements 
+ 
+• EDR/XDR (i  l  i  ), EPP/AV  
+• CIS h  d  i g   
+• Appli   i         l ( ll wli  )      i i  l    v     
+• P   h b   d     h      bli h d SLA    
+• Di k     yp i   (Bi L  k  /LUKS)  
+• S      B   /TPM  
+• V l    bili y     g       g    i    ll d / A  h   i    d        
+• Sy    /  di d  
+• U         y    vi    di  bl d  
+• Ch  g   d i i              
+• E  bl  h    fi  w ll  
+
+===== PAGE 7 =====
+
+ 
+                     
+             
+• D l   /M dify d f  l         
+• Ch  g  d f  l     fig    i     
+• S    g p   w  d p li y (b   d    O  S      p   w  d P li y)  
+• Di  bl            y                
+ 
+Tools/controls by device 
+ 
+• S  v  /  dp i  :  
+o EDR/XDR (C  wd   ik /E   /S   i  l O  , T   dMi   )  
+o C  fig    i       g      (E dp i   C     l/GPO/A  ibl ) 
+  dp i   DLP, l g f  w  d    
+o V l    bili y     g       g    (Q  ly )  
+o DNS fil   i g (F   iCli   /F   iEDR/Ci    U b  ll )  
+o PAM (A    l v    f   Wi d w  OS)  
+ 
+Acceptance criteria: EDR/XDR   v   g     100%; CIS ≥ 85%; p   h SLA       
+ 
+Evidence: Ag    i v     y, EDR   p    , CIS   p    , p   h KPI   
+ 
+ 
+f. IAM, PAM, RBAC/ABAC, ZTNA and access certification 
+ 
+Technical requirements 
+ 
+• H     A     : 
+o MFA: Phi hi g-   i      MFA f    ll         
+o JIT (J   -i -Ti  ):  N  p          d i  p ivil g    El v  i   
+  q i  d p       i   (  x 8h) vi  PIM/PAM  
+o C  di i   l A     : Bl  k        f       -
+   pli   /      g d d vi      d  i ky l    i     
+o B   k Gl   : D di    d     g   y             i    d wi h 
+i   di     l   i g  
+ 
+
+===== PAGE 8 =====
+
+ 
+                     
+             
+• N  -H     A      (M  hi  ): 
+o Id   i y F d    i  : U   M   g d Id   i i  /IAM R l   i     d 
+ f     i  k y  (AK/SK)  
+o S      M   g     : If k y         d d,  h y      b       d i  
+  V  l  (K y V  l /S       M   g  )   d       d  
+       i  lly  
+ 
+Acceptance criteria:  100%  d i   wi h MFA   d JIT; PAM f   p ivil g d 
+        ;       ifi   i     p    d   , 0     i  k y  i    d ; E   g   y 
+              d  
+Evidence: IdP p li i   (C    x /MFA), PAM  l v  i  /    i    l g , MFA l g , 
+      ifi   i     p    ,   d             i g   p      
+ 
+g. Cryptography, certificates and key management (KMS/HSM/PKI) 
+ 
+Technical requirements 
+ 
+• In transit:  TLS ≥ 1 2 (1 3 p  f    d); ECDHE (PFS); 
+AES‑GCM/CHACHA20‑POLY1305; SHA ‑256+  Di  bl  SSLv3/TLS 1 0/1 1, 
+RC4, 3DES, MD5   TLS f       i iv  i      l    vi     
+• At rest: AES‑256 (TDE/XTS/GCM     ppli  bl );    d   i l  h  h d 
+wi h A g  2/b  yp /PBKDF2  
+• C  p      PKI: OCSP/CRL,      i     d pi  i g wh     ppli  bl   
+• KMS/HSM: k y  p   d   i /  vi       , CMEK i   l  d,      i   ≤ 12 
+    h     by  v   ; FIPS 140‑2/3   d l    
+ 
+Acceptance criteria: 100%   dp i    wi h TLS ≥ 1 2;   ‑         yp i      
+    i iv  d   ;      i         h d l   
+Evidence: SSL/TLS         d    fig , k y i v     y/     i   , PKI      d   
+ 
+
+===== PAGE 9 =====
+
+ 
+                     
+             
+h. Logging, SIEM/UEBA and retention 
+ 
+Technical requirements 
+ 
+• S      : OS,  ppli   i   , DB, WAF/NGFW, VPN/ZTNA, IdP/IAM/PAM, 
+EDR/XDR, KMS/HSM, K b       , API g   w y ,  l  d       l pl   , AI 
+pl  f     (p   p  /      ),   i i  l S  S  
+• N    liz  i   (CEF/LEEF/OCSF), NTP;       i   p   f    w  k (PCI ≥ 1 
+y   ; ≥ 3     h    li  )  
+• U           pp d    MITRE ATT&CK;  l     wi h    b  k    d 
+   p     SLA   
+ 
+Acceptance criteria:  C v   g  ≥ 95%  f k y        ;   i i  l           
+   bl d   d      d  
+Evidence: S      li  , p      , d  hb   d ,          l    
+ 
+i. Vulnerability and patch management (including containers and 
+code) 
+ 
+Technical requirements 
+ 
+• A  h   i    d      i g i f  /h   /DB; SAST/DAST/IAST, SCA   d 
+            i g;      i       d K b        (i  g  /    i  )  
+• P i  i iz  i     i g CVSS v3 1 + EPSS/KEV +  xp     ; SLA : C i i  l ≤ 30d; 
+High ≤ 30d; M di   ≤ 6 ; L w ≤ 12d  
+• CIS B   h   k    d b   li   ; p   ‑p   h v lid  i  ;  x  p i    wi h 
+ xpi   i    
+•  
+Acceptance criteria: CIS ≥ 85%; SLA    pli     ≥ 90%  
+ 
+Evidence: S      p    ,  i k   , p   ‑fix v  ifi   i  , CIS        
+
+===== PAGE 10 =====
+
+ 
+                     
+             
+j. Secure SDLC, applications and APIs (OWASP) 
+ 
+Technical requirements 
+ 
+• Th     M d li g (STRIDE/LINDDUN); OWASP ASVS (L2/L3), OWASP T p 10 
+  d OWASP API T p 10  
+• S    i y p      i   : i p   v lid  i  ,      li i i g, WAF/RASP, h  d    
+(CSP, HSTS, X ‑F    ‑Op i   , X‑C      ‑Typ ‑Op i   ), CSRF/XSS 
+d f       
+• API: OIDC/OA  h2,    p  ,  TLS i      l,       y   d 
+q     / h    li g; API G   w y wi h p      i     
+• S          g          id    d  (v  l ), SBOM   d    if     ig i g 
+(  pply  h i )  
+ 
+Acceptance criteria: CI/CD pip li    wi h g     (SAST/DAST/SCA), 0         
+i    p  , p       p    d  
+Evidence: SAST/DAST/SCA   p    , API GW    fig , p           l    
+ 
+k. Business Continuity & Resilience (BCDR) 
+Objective: E       h    l  i       b      v   d wi hi     i  f     
+    p  bl      h  b  i      
+Technical requirements 
+ 
+• D fi   RTO (R   v  y Ti   Obj   iv )   d RPO (R   v  y P i   
+Obj   iv ) f    h  p  j     
+• High Av il bili y (HA)    fig    i   f     i i  l    p       (L  d 
+B l      , D   b    Cl      )  
+• F il v      h  i       i g (   l          lly) 
+ 
+
+===== PAGE 11 =====
+
+ 
+                     
+             
+Acceptance criteria: RTO/RPO d        d   d  pp  v d by  h  b  i     
+ w   ; F il v               f l  
+ 
+Evidence: B  i     I p    A  ly i  (BIA) d       ; F il v          p     
+ 
+2. On‑Premise Deployment 
+ 
+a. Perimeter/Network and DMZ 
+Objective: I  l    p bli h d    vi   ,  i i iz       k    f      d       l 
+   ffi   
+Technical requirements 
+ 
+• D di    d DMZ f   i       ‑f  i g    vi      
+• WAF f   p bli  f  i g    vi   /w b  pp    
+• NGFW wi h IDS/IPS   d DNS S    i y  
+• L3‑L7   g      i     d  i     g      i   (h   ‑b   d/SDN); 
+d  y‑by‑d f  l   
+• NAC f   i      l    w  k   
+• Sy l g p      l    bl d   d    fig   d f    ll    w  k d vi     
+ 
+Tools/controls by device 
+ 
+• P  i     : NGFW (P l  Al  /F   iG   /Ci   /Ch  kP i  ), WAF 
+(F   iW b/Az    Appli   i   G   w y/Cl  dfl  /F5/Ngi x), IDS/IPS 
+(Ci    IPS/Q      /P l  Al  /F   iG   d/Spl  k/S  i    /S    ), 
+DNS      i y, DD S  
+• L  d b l      /API GW: TLS 1 3  ffl  d, HSTS, i      l  TLS  
+ 
+Acceptance criteria:  D f  l ‑d  y;  h  g   wi h  w   / xpi   i  ; 
+  g      i         OK  
+ 
+
+===== PAGE 12 =====
+
+ 
+                     
+             
+Evidence: L3/L7 di g    ,  pp  v d   l  , WAF/IDS/IPS   p    , DD S pl    
+ 
+ 
+b. On‑prem databases 
+ 
+Technical requirements 
+ 
+• TDE/fil  y         yp i   + TLS 1 2+; l     p ivil g    l  ;   di i g 
+(q   i  /  h   );    ki g/  k  iz  i   i     ‑p  d  
+• N  p bli  IP  
+• A      vi  b   i  /VPN  
+• R    i    f          
+• E   yp  d b  k p    d                
+ 
+Tools/controls by device 
+ 
+• DB:    iv    di i g (SQL S  v   A di /O   l  U ifi d A di ), DAM 
+(I p  v /G   di  ), V  l /PKI f          /       
+ 
+Acceptance criteria: A ‑    /i ‑     i      yp i      bl d;   di i g    iv ; 
+l           f l         < 90 d y   
+ 
+Evidence: DB    fig    i  ,   di  l g ,           p   , i v     y  f DB          
+       (  l  /g     /    l g )  
+ 
+ 
+c. On‑prem AI (orchestrator/models/datasets) 
+ 
+Technical requirements 
+ 
+• N  w  k/d    i  l  i   f   AI  l      ; d             l 
+(p  v      /li     / l   ifi   i  )  
+
+===== PAGE 13 =====
+
+ 
+                     
+             
+• DLP    p   p  /   p   ,    g  l ggi g,   d       i i g wi h     i iv  
+d    wi h     pp  v l  
+• P   p ‑i j   i  / xfil    i              ;   d l/   if     ig i g   d 
+v  ifi   i    
+ 
+ 
+Tools/controls by device 
+ 
+• AI    h         (Mi     f  A   G  /N8N/K b fl w/MLfl w), AI 
+g   w y, DLP/fil    ,   d l         ;  ig  d    if      p  i   i    
+ 
+Acceptance criteria: P li i    f       d p   p        bili y    iv ; d        
+ l   ifi d   d  pp  v d  
+ 
+Evidence: M d l/d           l g, p li i  , AI l g   
+ 
+ 
+d. Certificates/PKI and internal mTLS 
+ 
+Objective: E       h  p  j     p         d        di  bl        l f    w  k  
+ 
+• C  p      PKI wi h OCSP/CRL; i        f   i      l  TLS;      i     d 
+pi  i g by   i i  li y  
+ 
+Acceptance criteria:  V lid     ifi     ;  p    i   l   v    i  ;  TLS    
+  i i  l    vi     
+ 
+Evidence: C   ifi     i v     y,  TLS      , OCSP/CRL      d   
+ 
+ 
+ 
+
+===== PAGE 14 =====
+
+ 
+                     
+             
+3. Cloud (IaaS/PaaS/SaaS) Deployment 
+ 
+a. Governance and posture (CSPM/guardrails) 
+ 
+Technical requirements 
+ 
+• S g  g  i    f         /p  j     (p  d/    /d v); CSPM wi h 
+CIS/NIST; p li y‑  ‑  d ;   ggi g ( w   ,  l   ifi   i  ,   i i  li y); 
+l  k   i i  l            
+ 
+Tools/controls by device 
+ 
+• AWS O g  iz  i   /S    i y H b, Az    P li y/D f  d  , GCP O g 
+P li y/SCC  
+ 
+Acceptance criteria: 0   i i  l           wi h      g ; CSPM       wi hi  
+   g    
+ 
+Evidence: CSPM   p    , p li i     d  pp  v d  x  p i     
+ 
+ 
+b. Cloud-Native Threat Detection (Control Plane) 
+ 
+Technical requirements 
+ 
+• E  bl  Cl  d-N  iv  d     i      vi    (AWS G   dD  y, Az    
+D f  d   f   Cl  d, GCP S    i y C     d C     )  
+• Al   i g    fig   d f   high-  v  i y       l pl     v     (  g , R    
+           g ,      h  iz d   gi      g , i p   ibl     v l)  
+• A       d     di  i      bl d f    l   i g  h      (  g ,     -
+    di     p        i y g   p )  
+ 
+
+===== PAGE 15 =====
+
+ 
+                     
+             
+Tools/controls by microservice 
+ 
+• AWS G   dD  y, Az    D f  d  , GCP SCC  
+ 
+Acceptance criteria:  Th     d     i      bl d i  100%  f 
+        /  b   ip i   ; Al     h    l i   g    d wi h SIEM/Ti k    y      
+ 
+Evidence: C    l         h     h wi g    vi   "A  iv "; Al       fig    i   
+    i g ,   d l g  b             h  SIEM  
+ 
+ 
+c. Cloud network/perimeter and internet publication 
+ 
+Technical requirements 
+ 
+• P iv   ‑by‑d f  l    b    , P iv    Li k/E dp i   ,       ll d  g    , 
+    g d WAF, p  vid   DD S  
+• ZTNA/SASE f    d i        ; b   i   wh     ppli  bl   
+ 
+Tools/controls by device 
+ 
+• CSP LB/API GW/WAF; S    i y G   p /NACL ; NAT; 
+P iv   Li k/E dp i   ; ZTNA/SASE  
+ 
+Acceptance criteria: Exp   d    vi      ly vi  WAF/LB;    p bli  d   b      
+ 
+Evidence: SG/NACL/fi  w ll    fig , WAF/DD S    bl d,  g     di g     
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 16 =====
+
+ 
+                     
+             
+d. Identities, keys and secrets 
+ 
+Technical requirements 
+ 
+• C     l IdP (SSO) wi h MFA   d C  di i   l A     ; KMS/HSM (CMEK 
+f       i iv  d   ); S      M   g   wi h      i     d   di   
+ 
+Tools/controls by device 
+ 
+• IdP (E    /Ok  /A  h0); KMS/K y V  l /S      M   g  ;     g d 
+HSM  
+ 
+Acceptance criteria: 100%  d i   wi h MFA;   g  g   d k y ;      i   ≤ 12 
+    h   
+ 
+Evidence: IdP/KMS p li i  , k y    g  l g ,      i     p      
+ 
+e. Data and databases (DBaaS, lakes, analytics) 
+ 
+Technical requirements 
+ 
+• E   yp i   & A     : E   yp i           by d f  l  (CMEK f   high  i k); 
+IAM   l ‑b   d        (   k y );   di i g    bl d (M   g      + 
+D    A       v    ); DR   l i‑AZ/  gi    
+• I     bili y: E  bl  Obj    L  k/V  l  L  k f   b  k p  (WORM); 
+E  bl  V   i  i g   d S f  D l       p  v          w   /   id    l 
+d l  i    
+• N  w  k: Bl  k P bli  A        f    d            l v l; P iv    
+Li k/E dp i      ly  
+• Lif  y l : A       d lif  y l  p li i   (     i i         hiv /d l   )    
+   ply wi h       i     h d l    
+
+===== PAGE 17 =====
+
+ 
+                     
+             
+• Di   v  y: A       d     i iv  d    di   v  y (DLP      i g) f   
+           d d    l k    
+ 
+Tools/controls by device 
+ 
+• DB: RDS/SQL MI/Cl  d SQL (PITR    bl d)  
+• S    g : S3 (Bl  k P bli  A      + Obj    L  k) / Bl b S    g  
+(I     bl  S    g ) / GCS (B  k   L  k)  
+• Di   v  y: M  i /P  vi w/Cl  d DLP  
+ 
+Acceptance criteria:  A di i g    bl d; R             d; Public access 
+blocked at account level ; B  k p I     bili y    iv ,   d    id   y 
+d        d  
+ 
+Evidence: DB  S    fig ,   di  l g , DR      , Bl  k P bli  A             h  , 
+Lif  y l  p li y  xp      
+ 
+ 
+f. Cloud-Native Container Security & Governance Framework 
+ 
+Technical requirements 
+ 
+• P iv      gi   y wi h      i g   d  ig i g;  d i  i   p li i   (   
+    /   p ivil g d); N  w  k P li i  ;  i i  l RBAC;   di  l g ; li i  d 
+ g     f      v  l     
+ 
+Tools/controls by device 
+ 
+• R gi   y (ECR/ACR/GAR) +         ; OPA/G   k  p  /Kyv    ; 
+F l  /Aq  /P i   ;    ig   
+ 
+Acceptance criteria: 0 i  g   wi h        / ig ;  d i  i   p li i      iv ; 
+  di     bl d  
+
+===== PAGE 18 =====
+
+ 
+                     
+             
+Evidence: M  if    ,          l  ,  l        di    
+ 
+ 
+g. AI in cloud (services and copilots) 
+ 
+Technical requirements 
+ 
+• P  vid   wi h SOC2/ISO;  p ‑     f    i i g; d          l  ( i i    
+      i  , l    i  )  
+• DLP   d p li i   f   p   p  /   p   ; l ggi g wi h    ki g;     ‑li i , 
+i p   v lid  i  ; pl gi /   l       l  
+ 
+Tools/controls by device 
+ 
+• CSP AI    vi   , AI g   w y,         fil    ,     g d MLOp   
+ 
+Acceptance criteria: L ggi g   d DLP    iv ;     i iv  d    p       d; AOC 
+         
+ 
+Evidence: AOC/SOC2, d          l    fig    i   , AI         
+ 
+ 
+h. Certificates/TLS at edge 
+ 
+Requirements: TLS 1 3 p  f    d    LB/API; HSTS; i      l  TLS;         d 
+    ifi     lif  y l    d      i    
+ 
+Evidence: SSL      , LB/API    fig ,     w l l g   
+ 
+ 
+ 
+ 
+
+===== PAGE 19 =====
+
+ 
+                     
+             
+i. Cost Anomaly Detection (Denial of Wallet) 
+ 
+Objective: D           k     pi  i g  p   yp  - i       
+Technical requirements 
+ 
+• Budget Alarms: S    l        50%, 80%,   d 100%  f  h      hly b dg   
+f         
+• Resource Quotas : S   h  d li i   (S  vi   Q     )     xp   iv  
+          (  g , GPU i        )    p  v         h  iz d  i i g  
+• Anomaly Detection: E  bl  p  vid             ly d     i   f         
+ 
+Acceptance criteria: B dg    l        iv    d      d     h     h i  l  w    
+  d      i y       
+ 
+Evidence: S      h    f b dg    l       fig    i    
+ 
+ 
+4. Hybrid (On‑prem + Cloud) Deployment 
+ 
+a. Secure connectivity, Zero Trust and certificates 
+ 
+Technical requirements 
+ 
+• IP   /IKEv2    TLS ≥ 1 2      l ;  i i  l BGP       ; FW  S/SASE f   
+    i      i  p   i    
+• I    ‑d   i   TLS ; f d     d PKI; OCSP/CRL  p    i   l;   ifi d 
+p li i   (IAM, DLP,   yp  , l b li g)  
+ 
+ 
+ 
+ 
+
+===== PAGE 20 =====
+
+ 
+                     
+             
+Tools/controls by device 
+ 
+• VPN GW/SD‑WAN/SASE,     ifi         g   ,   ‑p    HSM +  l  d 
+KMS  
+ 
+Acceptance criteria: T    l  wi h PFS; v lid     ifi     /     i   ;   if    
+p li i    ppli d  
+ 
+Evidence: C  fig ,     ifi     , OCSP/CRL      d ,        ivi y        
+ 
+ 
+b. Unified SIEM/SOAR and operations 
+ 
+Technical requirements 
+ 
+• U ifi d i g   i   (  ‑p   + l  d) wi h OCSF/CEF      liz  i  ; 
+  d‑  ‑  d           (i    ‑d   i   xfil    i  ,  y  h   iz d 
+        ,      l  b   )  
+• SOAR wi h hyb id pl yb  k  (i  l    EDR,  l    SG/NACL,   v k  
+k y /       )  
+ 
+Acceptance criteria: C v   g     100%  f        ;   d‑  ‑  d           
+   iv ; MTTR wi hi   bj   iv   
+ 
+Evidence: C         , p      , SOAR  x    i   , MTTD/MTTR     i    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 21 =====
+
+ 
+                     
+             
+c. Vulnerabilities, configuration and IaC 
+ 
+Technical requirements 
+ 
+• S    i g   v   g  i  b  h d   i  ; p i  i iz  i   by hyb id  xp     ; 
+I C b   li    + GPO/A  ibl ;  x  p i    wi h  xpi   i    
+ 
+Evidence: C    lid   d   p    , pip li   g    ,  x  p i   i v     y  
+ 
+ 
+d. Data/DB and federated AI 
+ 
+Technical requirements 
+ 
+• R  id   y   d   v   ig  y: d fi   l    i     d      i ;     yp  d 
+  pli   i  ;   k  iz  i       h        i iv  d     
+• C    lid   d i v     y  f d   b                    (  l  , g     , 
+    l g );      ‑  vi          di i g  
+• AI: g v         f   d l /   if    , f d     d f             , p   p  
+  d     i g f    xp   d i    f      
+ 
+Evidence: R  id   y     ix, DB   di       d ,   d l l gb  k   d p   p  
+       
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 22 =====
+
+ 
+                     
+             
+5. Mobile Application Security 
+ 
+a. Mobile Application Secure implementation 
+Objective: S       li   - id    bil   ppli   i     
+Technical requirements 
+ 
+• Adh          OWASP MASVS (M bil  App S    i y V  ifi   i   
+S   d  d) L1    L2 d p  di g      i i  li y  
+•  R   /J ilb   k d     i      bl d  
+• C d   bf     i   (P  G   d/R8/D xG   d) f   p  d   i   b ild   
+• N  h  d  d d API k y             i   h    bil  bi   y  
+ 
+Acceptance criteria: MASVS L1    pli     v  ifi d vi         d P       f    
+O  S      T     
+ 
+Evidence: SAST   p     p  ifi  lly f     bil  (  g , M bSF)   d P         p    
+d liv   d by O  SO    ’       i y       
+ 
+ 
+6. Device‑level tools/controls (catalog) 
+ 
+• S  v  /VM (  ‑p    &  l  d): EDR/XDR (C  wd   ik ), v l    bili y         
+(Q  ly ),   dp i   DLP (Az   , F   iG   d), l g f  w  d   (W z h), DNS fil   i g 
+(Ci    U b  ll ), UEM (E dp i   C     l),  l  d      i y (Wiz),    w  k 
+   i   i g (PRTG); CIS h  d  i g ≥ 95%, f ll ‑di k     yp i  , PAM j  p  
+(A    l v   ), TLS 1 2+,  y    /  di d  
+ 
+• E dp i   (Wi /   OS/Li  x/M bil ): EDR/XDR (C  wd   ik ), DLP  (Az    
+F   iG   d), UEM/MDM/EMM (E dp i   C     l), v l    bili y         (Q  ly ), 
+VPN/ZTNA (IVANTI, A yC      ) , DNS fil   i g (Ci    U b  ll ), PAM 
+
+===== PAGE 23 =====
+
+ 
+                     
+             
+(A    l v   ); di k     yp i   (Bi l  k  ), p          pli    ,     v bl    di  
+      l,        DNS  
+ 
+• D   b   :    iv    di /DAM, TDE, TLS,     yp  d b  k p,   h     h  g  
+   i   i g; l    ‑p ivil g    l  ,             i  ,    ki g/  k  iz  i  ,       l 
+d    i     ‑p  d  
+ 
+• N  w  k/P  i     : NGFW, WAF, IDS/IPS, NAC 802 1X, DNS      i y, SD‑WAN/SASE, 
+DD S, IP   /SSL VPN, LB/API GW;   g      i  / i     g      i  , 
+d  y‑by‑d f  l , DMZ, i      l  TLS  
+ 
+• K b       /C    i    : p iv      gi   y +      i g,  ig i g (   ig /     y), 
+ d i  i         ll    (OPA/Kyv    ), F l  , N  w  kP li i  , RBAC,   di  l g ;    
+    /p ivil g d,            ‑ f‑b  d, SBOM,      i   d  g      
+ 
+• AI O  h        /S  vi   : AI g   w y,         fil    , DLP f   p   p  /   p   , 
+MLOp  (MLfl w/K b fl w),   d l/w igh           ;  p ‑       i i g,    k d 
+l ggi g,     ‑li i /q     , i p   v lid  i  , pl gi /   l   vi w  
+ 
+ 
+7. API‑specific requirements (apply to all types) 
+ 
+• Authentication/Authorization: OIDC/OA  h2,    p  , RBAC/ABAC,       y  
+• Transport: TLS ≥ 1 2/1 3,  TLS b  w     i      vi   ; HSTS    f       d   
+• Protections:      li i ,    i‑b  ,   h    v lid  i  , WAF/API GW, CSP  
+• Management: v   i  i g, q     , lif  y l    d d p     i  ,  b   v bili y 
+(l g /    i  /      )  
+• Evidence: API GW p li i  , DAST     l  ,  b   /bl  k l g   
+ 
+ 
+ 
+
+===== PAGE 24 =====
+
+ 
+                     
+             
+8. Software, licensing and subscription management 
+ 
+• All  h    f w    i    d d           b  i pl      d i    y       (  -p   ,  l  d, 
+hyb id)      b    p    d   d    lyz d by  h  I f     i   S    i y d p         
+• All  h  li    i g   d   f w      b   ip i    wi h  hi d p   i  , i    d d    b     d 
+b f        f     h  p  j      ll   ,      b    p    d   d  ig    d    IT S lv  f   
+hi      g     ,       l   d d         i    
+ 
+9. Minimum project acceptance criteria (Go/No‑Go) 
+ 
+• MFA     ll  d i i     iv    d                
+• TLS ≥ 1 2    100%  f  xp   d   dp i    (1 3 p  f    d)  
+• E   yp i           f       i iv  d    (PCI/PHI/PII) wi h KMS/HSM   d d fi  d 
+     i     
+• CIS B   h   k  ≥ 90%    i ‑   p   y       
+• 0 C i i  l/High v l    bili i    xp   d    i        wi h     i ig  i    
+• SIEM wi h ≥ 95%  f k y         i   g    d;       i   p   PCI/SOC2/HIPAA  
+• E   yp  d, i     bl  b  k p ; l           f l         < 90 d y   
+• C  pl    i v     y (CMDB/IPAM/DB)   d f ll       bili y (  q i       →       l 
+→  vid    )  
